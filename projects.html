@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/project.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<!-- Navigation bar -->
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top ">
+        <a class="navbar-brand" href="#">Baltac Mihai-Cristian</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" active>Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      
+    
+    <!-- MAIN (Center website) -->
+    <div class="main">
+    
+        
+        <h2>PORTFOLIO</h2>
+        
+        <div id="myBtnContainer">
+          <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+          <button class="btn" onclick="filterSelection('web')"> Web Developer</button>
+          <button class="btn" onclick="filterSelection('cc')"> C/C++</button>
+          <button class="btn" onclick="filterSelection('other')"> Other</button>
+        </div>
+        
+        <!-- Portfolio Gallery Grid -->
+        <div class="row">
+          <div class="column web">
+            <div class="content">
+              <img src="Photos/FirstSite.png" alt="First_Site" style="width:100%">
+              <h4>First Site</h4>
+              <p>We used the following technologies:</p>
+              <ul>
+                <li><p>Jquery</p></li>
+                <li><p>Fontawesome</p></li>
+              </ul>
+              <a href="">Description</a>
+              <a href="Projects/mywebsite/Index_en.html">See</a>
+              <a href="https://gitlab.com/BaltacMihai/mywebsite">Code</a>
+            </div>
+          </div>
+          <div class="column web">
+            <div class="content">
+            <img src="Photos/Background.png" alt="Background_Changer" style="width:100%">
+              <h4>BackgroundChanger</h4>
+              <p>Application in which I did not use only raw code, to get acquainted with Javascript.</p>
+              <a href="">Description</a>
+              <a href="Projects/background-image-changer/index.html">See</a>
+              <a href="https://gitlab.com/BaltacMihai/background-image-changer">Code</a>
+            </div>
+          </div>
+          <div class="column cc">
+            <div class="content">
+            <img src="Photos/airport.jpg" alt="Airport_C" style="width:100%">
+              <h4>Airport</h4>
+              <p>Program made with C / C ++. Technology used:
+                Dijkstra Algorithm</p>
+                <a href="">Description</a>
+              <a class="nav-link disabled" href="">See</a>
+              <a href="https://gitlab.com/BaltacMihai/airport">Code</a>
+            </div>
+          </div>
+          
+          <div class="column cc">
+            <div class="content">
+              <img src="Photos/relativefiles.png" alt="Relative_Files_C" style="width:100%">
+              <h4>Relative Files</h4>
+              <p>Program made with C / C ++. Technology used:
+                relative files.<br>
+                We have created all the necessary applications for maintaining the database.</p>
+                <a href="">Description</a>
+              <a class="nav-link disabled" href="">See</a>
+              <a href="https://gitlab.com/BaltacMihai/relative-files">Code</a>
+            </div>
+          </div>
+           <div class="column web">
+            <div class="content">
+            <img src="Photos/actual.png" alt="ActualSite" style="width:100%">
+              <h4>The actual site</h4>
+              <p>This is the current site. Technologies used:<br>
+                bootstrap<br>
+                jquery</p>
+                <a href="">Description</a>
+              <a  href="index.html">See</a>
+              <a class="nav-link disabled" href="">Code</a>
+            </div>
+          </div> 
+          <!-- 
+          <div class="column cars">
+            <div class="content">
+            <img src="/w3images/cars3.jpg" alt="Car" style="width:100%">
+              <h4>Classic</h4>
+              <p>Lorem ipsum dolor..</p>
+            </div>
+          </div>
+        
+          <div class="column people">
+            <div class="content">
+              <img src="/w3images/people1.jpg" alt="Car" style="width:100%">
+              <h4>Girl</h4>
+              <p>Lorem ipsum dolor..</p>
+            </div>
+          </div>
+          <div class="column people">
+            <div class="content">
+            <img src="/w3images/people2.jpg" alt="Car" style="width:100%">
+              <h4>Man</h4>
+              <p>Lorem ipsum dolor..</p>
+            </div>
+          </div>
+          <div class="column people">
+            <div class="content">
+            <img src="/w3images/people3.jpg" alt="Car" style="width:100%">
+              <h4>Woman</h4>
+              <p>Lorem ipsum dolor..</p>
+            </div> -->
+          </div>
+        <!-- END GRID -->
+        </div>
+        
+        <!-- END MAIN -->
+        </div>
+        
+       
+        
+    
+    
+    
+        <script src="JS/project.js"></script>
+
+</div>
+
+
+    
+   
+</body>
+</html>
+
+
