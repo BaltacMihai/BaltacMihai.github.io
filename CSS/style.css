@@ -11,7 +11,7 @@ body {
     color: #dddddd;
     line-height: 1.6;
     height: 100vh;
-    background: linear-gradient(315deg, #3d3a3b, #47413f, black);
+    background-image: url("stars.jpg");
    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
