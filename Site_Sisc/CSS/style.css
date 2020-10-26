@@ -28,8 +28,8 @@ html {
 }
 
 .logo{
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 75px;
 }
 
 .container {
@@ -39,6 +39,7 @@ html {
 
 p{
     word-break: break-all;
+    width: 75em;
 }
 
 section{

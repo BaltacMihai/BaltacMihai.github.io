@@ -1,0 +1,45 @@
+.us {
+    border: 2px solid black;
+    background: linear-gradient(315deg transparent,#DDA15E,#DDA15E,transparent );
+    border-radius: 5px;
+    padding: 16px;
+    margin: 16px 0;
+  }
+  
+  /* Clear floats after uss */
+  .us::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Float images inside the us to the left. Add a right margin, and style the image as a circle */
+  .us img {
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  
+  /* Increase the font-size of a span element */
+  .us span {
+    font-size: 20px;
+    margin-right: 15px;
+  }
+  
+  /* Add media queries for responsiveness. This will center both the text and the image inside the us */
+  @media (max-width: 500px) {
+    .us {
+      text-align: center;
+    }
+    
+  
+    .us img {
+      margin: auto;
+      float: none;
+      display: block;
+    }
+  }
+
+  SECTION{
+      margin-top: 100%;
+  }
