@@ -1,9 +1,12 @@
 .us {
-    border: 2px solid black;
+    border: 2px solid rgba(0, 0, 0, 0.247);
     background: linear-gradient(315deg transparent,#DDA15E,#DDA15E,transparent );
     border-radius: 5px;
     padding: 16px;
     margin: 16px 0;
+    box-shadow: 10px 10px 5px grey;
+  padding: 3%;
+  background-image: url(../poze/back.png);
   }
   
   /* Clear floats after uss */
@@ -41,5 +44,5 @@
   }
 
   SECTION{
-      margin-top: 100%;
+      margin-top: 125%;
   }
