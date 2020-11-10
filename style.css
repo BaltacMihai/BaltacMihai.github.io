@@ -14,9 +14,12 @@ html {
     line-height: 1.6;
     height: 100vh;
     background-color: #a3a2a2;
-    font-family: 'Permanent Marker', cursive;
+    font-family: Helvetica, cursive;
 }
+h1{
+  font-family: 'Permanent Marker', cursive;
 
+}
 
 .desc{
   color: #ffffff;
