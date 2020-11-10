@@ -1,171 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-  <title>My Portfolio</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="CSS/style.css">
-  <link rel="stylesheet" href="CSS/project.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- 
+    <title> My Portfolio    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Css/About.css">
+    <link rel="stylesheet" href="Css/Projects.css">
+<link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    
+    <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
+
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body>
+   
+<div class="background">
+   
+         <h1>  >Proje<span style="color:  #c1abf0">cts<hr></span>   </h1>
+         <a href="index.html"  class = "back"></a>
+         <p class="no">03</p>
 
-<!-- Navigation bar -->
 
-<div class="container">
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top ">
-        <a class="navbar-brand" href="#">Baltac Mihai-Cristian</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" active>Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
   
-      
-    
-    <!-- MAIN (Center website) -->
-    <div class="main">
-    
-        
-        <h2>PORTFOLIO</h2>
-        
-        <div id="myBtnContainer">
-          <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-          <button class="btn" onclick="filterSelection('web')"> Web Developer</button>
-          <button class="btn" onclick="filterSelection('cc')"> C/C++</button>
-          <button class="btn" onclick="filterSelection('other')"> Other</button>
-        </div>
-        
-        <!-- Portfolio Gallery Grid -->
-        <div class="row">
-          <div class="column web">
-            <div class="content">
-              <img src="Photos/FirstSite.png" alt="First_Site" style="width:100%">
-              <h4>First Site</h4>
-              <p>We used the following technologies:</p>
-              <ul>
-                <li><p>Jquery</p></li>
-                <li><p>Fontawesome</p></li>
-              </ul>
-            
-              <a href="https://gitlab.com/BaltacMihai/mywebsite">Code</a>
-            </div>
-          </div>
-          <div class="column web">
-            <div class="content">
-            <img src="Photos/Background.png" alt="Background_Changer" style="width:100%">
-              <h4>BackgroundChanger</h4>
-              <p>Application in which I did not use only raw code, to get acquainted with Javascript.</p>
-
-              <a href="https://gitlab.com/BaltacMihai/background-image-changer">Code</a>
-            </div>
-          </div>
-          <div class="column cc">
-            <div class="content">
-            <img src="Photos/airport.jpg" alt="Airport_C" style="width:100%">
-              <h4>Airport</h4>
-              <p>Program made with C / C ++. Technology used:
-                Dijkstra Algorithm</p>
-          
-              <a href="https://gitlab.com/BaltacMihai/airport">Code</a>
-            </div>
-          </div>
-          
-          <div class="column cc">
-            <div class="content">
-              <img src="Photos/relativefiles.png" alt="Relative_Files_C" style="width:100%">
-              <h4>Relative Files</h4>
-              <p>Program made with C / C ++. Technology used:
-                relative files.<br>
-                We have created all the necessary applications for maintaining the database.</p>
-          
-              <a href="https://gitlab.com/BaltacMihai/relative-files">Code</a>
-            </div>
-          </div>
-           <div class="column web">
-            <div class="content">
-            <img src="Photos/actual.png" alt="ActualSite" style="width:100%">
-              <h4>The actual site</h4>
-              <p>This is the current site. Technologies used:<br>
-                bootstrap<br>
-                jquery</p>
-             
-              <a  href="index.html">See</a>
-           
-            </div>
-          </div> 
-         
-          <div class="column web other">
-            <div class="content">
-            <img src="Photos/Travel.jpg" alt="Travel_agency" style="width:100%">
-              <h4>Travel agency</h4>
-                <p>The database was created using Oracle's Aplication Express.</p>
-                
-              <a  href="https://gitlab.com/BaltacMihai/travel-agency">Code</a>
-            </div>
-            </div>
-          </div>
-         <!-- 
-          <div class="column people">
-            <div class="content">
-              <img src="/w3images/people1.jpg" alt="Car" style="width:100%">
-              <h4>Girl</h4>
-              <p>Lorem ipsum dolor..</p>
-            </div>
-          </div>
-          <div class="column people">
-            <div class="content">
-            <img src="/w3images/people2.jpg" alt="Car" style="width:100%">
-              <h4>Man</h4>
-              <p>Lorem ipsum dolor..</p>
-            </div>
-          </div>
-          <div class="column people">
-            <div class="content">
-            <img src="/w3images/people3.jpg" alt="Car" style="width:100%">
-              <h4>Woman</h4>
-              <p>Lorem ipsum dolor..</p>
-            </div> -->
-          </div>
-        <!-- END GRID -->
-        </div>
-        
-        <!-- END MAIN -->
-        </div>
-        
-       
-        
-    
-    
-    
-        <script src="JS/project.js"></script>
+   
 
 </div>
 
+<h2>Projects </h2>
+<div class="row">
+    <div class="card">
+              <img src="Photos/TheWebsite.png" alt="Organizer" class = "cardimg ">
+              <div class="container">
+                <h4><b>Organizer</b></h4> 
+                <p>
+                    The program creates a hierarchical structure of folders that can be placed in any partition, including external memory (CD, Stick).<br>
+                    The program generates a web page both in the root folder and on the desktop. This page was designed to help the user navigate folders more easily. Because there are people who move their desktop to another partition, the program asked you about this detail.</p> 
+                
+                    <div class="Links">
+                        <a href="Projects/index.html" target="_blanck">See</a>
+                        <a href="https://github.com/BaltacMihai/Organizator" target="_blanck">Code</a>
+                    </div>
+                    
+              </div>
+           
+  
+              
+            </div>
+  
+            <!-- <div class="card">
+              <img src="assets/Poza2.jpg" alt="Padure" class = "cardimg ">
+              <div class="container">
+                <h4><b>Morbi eleifend a libero</b></h4> 
+                <p> Lorem ipsum dolor sit amet, ipsum labitur
+                  lucilius mel id, ad has appareat.</p> 
+                  
+              </div>
+              <div class= "time"> <img src="css/clock-regular.svg" alt="clock" style="height: 20px; margin-right: 5px;">
+              <p>1h ago</p></div>
+             
+  
+            </div>
+  
+            <div class="card">
+              <img src="assets/Poza3.jpg" alt="Pinguin" class = "cardimg ">
+              <div class="container">
+                <h4><b>Morbi eleifend a libero</b></h4> 
+                <p> Lorem ipsum dolor sit amet, ipsum labitur
+                  lucilius mel id, ad has appareat.
+                  
+                  </p> 
+                              </div>
+                            
+              <div class= "time"> <img src="css/clock-regular.svg" alt="clock" style="height: 20px; margin-right: 5px;">
+              <p>3h ago</p></div>
+  
+            </div> -->
+  
+  </div>
+<h2>Challanges </h2>
+<div class="row">
+    <div class="card">
+              <img src="Photos/Wildlife.png" alt="Wildlife" class = "cardimg ">
+              <div class="container">
+                <h4><b>WildLife</b></h4> 
+                <p>
+                    The project consisted of receiving a PNG with the design of the site. I also received all the pictures and details related to this site. My goal was to recreate that image in HTML / CSS / JS.
+<br><b>#PSD to HTML</b></p> 
+                
+                    <div class="Links">
+                        <a href="Projects/WildLife/index.html" target="_blanck">See</a>
+                        <a href="https://github.com/BaltacMihai/WildLife" target="_blanck">Code</a>
+                    </div>
+                    
+              </div>
+           
+  
+              
+            </div>
+  
+            <!-- <div class="card">
+              <img src="assets/Poza2.jpg" alt="Padure" class = "cardimg ">
+              <div class="container">
+                <h4><b>Morbi eleifend a libero</b></h4> 
+                <p> Lorem ipsum dolor sit amet, ipsum labitur
+                  lucilius mel id, ad has appareat.</p> 
+                  
+              </div>
+              <div class= "time"> <img src="css/clock-regular.svg" alt="clock" style="height: 20px; margin-right: 5px;">
+              <p>1h ago</p></div>
+             
+  
+            </div>
+  
+            <div class="card">
+              <img src="assets/Poza3.jpg" alt="Pinguin" class = "cardimg ">
+              <div class="container">
+                <h4><b>Morbi eleifend a libero</b></h4> 
+                <p> Lorem ipsum dolor sit amet, ipsum labitur
+                  lucilius mel id, ad has appareat.
+                  
+                  </p> 
+                              </div>
+                            
+              <div class= "time"> <img src="css/clock-regular.svg" alt="clock" style="height: 20px; margin-right: 5px;">
+              <p>3h ago</p></div>
+  
+            </div> -->
+  
+  </div>
 
-    
+
+
+<footer class="footer">
+
+  
+  <tr>
+    <td>
+      <a class="nav-link" href="About.html">About</a>
+
+
+    </td>
+
+    <td><a class="nav-link" href="projects.html">Projects</a></td>
+ 
+ 
+
+    <td>                <a class="nav-link" href="Goals.html">Goals</a>
+    </td>
+
+ 
+
+    <td>                  <a class="nav-link" href="Contact.html">Contact</a>
+    </td>
+ 
+  </tr>
+  
    
+    </table>
+  <div class="socialMedia" >
+    <a class="fa fa-linkedin" href="https://www.linkedin.com/in/baltac-mihai-cristian/" ></a>
+    <a class="fa fa-github" href="https://github.com/BaltacMihai"></a>
+    <a class="fa fa-facebook"  href="https://www.facebook.com/cristian.mihai.92/"></a>
+    <a class="fa fa-gitlab"href="https://gitlab.com/BaltacMihai"></a>
+   
+  </div>
+  
+  </footer>
+
+
+
+
+
+
+
+
+
 </body>
-</html>
-
-
