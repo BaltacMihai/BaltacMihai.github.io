@@ -13,7 +13,7 @@ html {
     font-family: Helvetica;
     line-height: 1.6;
     height: 100vh;
-background-color: #EFF9DA;
+background-color: #FFFFFF;
 font-family: 'Permanent Marker', cursive;
 }
   .background{
@@ -146,7 +146,7 @@ text-decoration: none;
   font-size: 5em;
   position: relative;
   top: 60%;
-  color:#EFF9DA;
+  color:#FFFFFF;
   left: 5%;
   font-family: 'Roboto Mono'
 }
