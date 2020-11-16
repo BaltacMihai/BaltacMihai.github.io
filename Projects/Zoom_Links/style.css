@@ -1,0 +1,36 @@
+
+html{
+background-color: rgba(245, 222, 179, 0.404);
+
+}
+
+h3{
+    text-align: center;
+
+}
+
+.ora{
+align-items: center;
+text-align: center;
+padding: 5%;
+}
+
+.ora a{
+    padding: 1% 20% 1% 20%;
+    margin:3%;
+    background-color: wheat;
+    text-decoration: none;
+    color:black;
+    text-align: center;
+display: block
+
+}
+
+
+@media (min-width: 1200px)
+{
+   .ora a{
+       display: inline;
+   }
+}
+
