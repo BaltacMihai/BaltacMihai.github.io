@@ -89,7 +89,13 @@
     <div class="footer">
         <p>This is a Mockup project build by @Baltac Mihai-Cristian</p>
     </div>
-    <script src="JS/navbar.js"></script>
+    <script>function display() {
+    var x = document.getElementById("MyNavbar");
+    if (x.style.display == "none") {
+        x.style.display = "flex";
+        console.log("Done");
+    } else x.style.display = "none";
+}</script>
 </body>
 
 </html>
