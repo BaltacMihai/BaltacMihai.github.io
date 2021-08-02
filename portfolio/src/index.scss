@@ -1,0 +1,14 @@
+@import "./global.scss";
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+body {
+  background-color: $blackColor;
+  margin: 0;
+  font-family: 'Rajdhani', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

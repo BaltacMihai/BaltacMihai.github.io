@@ -1,0 +1,80 @@
+@import "../../global.scss";
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+
+  .menuburger {
+    width: 35px;
+    height: 2px;
+    background-color: green;
+    margin: 5px;
+  }
+
+  &:hover {
+    .menuburger {
+      width: 40px;
+      height: 5px;
+        transition: 1s;
+        z-index: 100;
+      &:first-child {
+        position: relative;
+        bottom: -15px;
+        transform: rotate(45deg);
+        background-color: green;
+        transition: 1s;
+      }
+      &:nth-child(2) {
+        position: relative;
+        transition: 1s;
+
+        transform: rotate(-45deg);
+        background-color: green;
+      }
+      &:nth-child(3) {
+        transition: 1s;
+        display: none;
+      }
+      
+     
+    }
+    
+  }
+  
+  .links {
+    background-color: $blackColor;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 99;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    right: 0;
+    
+    a {
+      margin: auto;
+      text-decoration: none;
+      color: green;
+      font-size: 3vw;
+      padding: 1em 10em;
+      font-weight: bold;
+
+      &:hover{
+        color:$blackColor;
+        background-color: green;
+        transition: 0.5s, transform 2s;
+
+    }
+      
+    }
+   
+  }
+  
+  
+}
