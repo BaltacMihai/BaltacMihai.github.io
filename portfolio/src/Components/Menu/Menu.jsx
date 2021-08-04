@@ -84,6 +84,30 @@ const AboutPage = (props) => {
   );
 };
 
+const Links = (props) => {
+  if ((props.code != null) & (props.site != null))
+    return (
+      <div className="links">
+        <a href={props.site}>See The Website</a>
+        <a href={props.code}>See the Code</a>
+      </div>
+    );
+  else if ((props.code == null) & (props.site != null))
+    return (
+      <div className="links">
+        <a href={props.site}>See The Website</a>
+      </div>
+    );
+  else if ((props.code != null) & (props.site == null))
+    return (
+      <div className="links">
+        <a href={props.code}>See the Code</a>
+      </div>
+    );
+  else if ((props.code == null) & (props.site == null))
+    return <div className="links"></div>;
+};
+
 const Tags = (props) => {
   let x = 0;
   return props.tags.map((tag) => {
@@ -94,7 +118,6 @@ const Projects = (props) => {
   return props.projects.map((project) => {
     return (
       <div className="project">
-        
         <img
           src={project.img}
           alt={project.name}
@@ -111,10 +134,8 @@ const Projects = (props) => {
           <div className="row">
             <Tags tags={project.tags} />
           </div>
-          <div className="links">
-            <a href={project.links.site}>See The Website</a>
-            <a href={project.links.code}>See the Code</a>
-          </div>
+          <Links site={project.links.site} code={project.links.code}/>
+          
         </div>
       </div>
     );
@@ -124,7 +145,6 @@ class ProjectPage extends Component {
   constructor(props) {
     super(props);
   }
-
 
   componentDidMount() {
     var span = document.getElementById("close");
@@ -142,7 +162,7 @@ class ProjectPage extends Component {
     };
 
     span.onclick = function () {
-    console.log(span);
+      console.log(span);
 
       document.getElementById("to-1").style.display = "none";
       document.getElementById("to-2").style.display = "none";

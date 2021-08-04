@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Info.scss'
-import Photo from '../../Photos/photo.jfif'
+import Photo from '../../Photos/profile.jpg'
 import linkedin from '../../Photos/linkedin.png'
 import email from '../../Photos/email.png'
 import location from '../../Photos/location.png'
