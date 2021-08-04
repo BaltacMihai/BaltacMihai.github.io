@@ -1,40 +1,47 @@
 import React, { Component } from "react";
 import "./Navbar.scss";
+import hamb from "../../Photos/hamb.png";
+import x from "../../Photos/x.png";
+
+const MainMenu = (props) => {
+    
+    
+  if (props.opened == true) {
+    return (
+      <div className="menu">
+
+        <button onClick={props.clickAbout}>About Me</button>
+        <button onClick={props.clickPortfolio}>Projects</button>
+      </div>
+    );
+  } else return " ";
+};
+
 export class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false,
+      img: hamb,
+      opened: false,
     };
-    this.handleClicked = this.handleClicked.bind(this);
+    this.changeOpen = this.changeOpen.bind(this);
   }
-
-  handleClicked() {
-    const docToModify = document.getElementById("links");
-    
-    if (!this.state.clicked) {
-      docToModify.style.display = "flex";
-    } else {
-      docToModify.style.display = "none";
-    }
-    this.setState({ clicked: !this.state.clicked });
-  }
+  changeOpen = () => {
+    this.setState({ opened: !this.state.opened });
+    if (this.state.img === hamb) this.setState({ img: x });
+    else this.setState({ img: hamb });
+  };
 
   render() {
     return (
       <div className="navbar">
-        <div className="menu" onClick={this.handleClicked}>
-          <div className="menuburger"></div>
-          <div className="menuburger"></div>
-          <div className="menuburger"></div>
-          <div className="links" id="links">
-            <a href="#home">Home</a>
-            <a href="">Experience</a>
-            <a href="">Skills</a>
-            <a href="">Projects</a>
-            <a href="">Contact</a>
-          </div>
-        </div>
+        <MainMenu
+          opened={this.state.opened}
+          clickPortfolio={this.props.clickPortfolio}
+          clickAbout = { this.props.clickAbout}
+        />
+
+        <img src={this.state.img} alt="hamb" onClick={this.changeOpen} />
       </div>
     );
   }

@@ -6,6 +6,7 @@ $whiteColor: #F8F7FF;
 $width-mobile: 768px;
 $width-tablet: 1024px;
 
+$border-radius: 15px;
 
 @mixin mobile{
     @media (max-width: #{$width-mobile}){
@@ -17,4 +18,5 @@ $width-tablet: 1024px;
     @media (max-width: #{$width-tablet}){
     @content
 }
-}
+};
+

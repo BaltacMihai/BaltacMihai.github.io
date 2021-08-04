@@ -1,0 +1,206 @@
+@import "../../global.scss";
+
+.column-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 65vw;
+  height: 28em;
+  position: relative;
+  top: 10vh;
+  box-shadow: 0 0 1rem 0 $blackColor;
+  border-radius: $border-radius;
+  background-color: rgba(255, 255, 255, 0.685);
+  backdrop-filter: blur(30px);
+  padding: 1em;
+  @include mobile {
+    height: auto;
+    width: 16em;
+    top: 1em;
+  }
+
+  .aboutme {
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+    }
+    p {
+      margin-top: 0;
+    }
+    h1 {
+      margin: 0;
+      margin-left: 20px;
+
+      @include tablet {
+        margin: 0;
+        margin-left: 20px;
+      }
+      strong {
+        border-bottom: 3px solid black;
+        border-color: $blackColor;
+      }
+    }
+  }
+  .doing {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    h1 {
+      margin-top: 0;
+      margin-left: 20px;
+      @include tablet {
+        margin: 0;
+        margin-left: 20px;
+      }
+    }
+    .cards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      @include mobile {
+        flex-direction: column;
+      }
+      
+      .card {
+        box-shadow: 0 0 0.1rem 0 $blackColor;
+        border-radius: $border-radius;
+        background-color: rgba(252, 215, 181, 0.534);
+        backdrop-filter: blur(30px);
+        display: flex;
+        margin: 5px;
+        width: 45%;
+        padding: 0;
+        @include mobile {
+          width: auto;
+        }
+        .icon {
+          padding: 3px;
+          width: 50px;
+        }
+        .icon-mid {
+          padding: 5px;
+          padding-top: 10px;
+          width: 35px;
+        }
+        .icon-min {
+          padding: 5px;
+          padding-top: 10px;
+          width: 25px;
+        }
+
+        .right {
+          h3 {
+            font-size: 15px;
+          }
+          p {
+            @include tablet {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .listofprojects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .project {
+      flex: 0 0 25%;
+      margin: 5px;
+      .pj-img {
+        width: 250px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: $border-radius;
+      }
+
+      .click {
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        position: fixed;
+        z-index: 99;
+        background: inherit;
+        overflow: hidden;
+        top: 2em;
+        left: 10em;
+        width: 38em;
+        border-radius: $border-radius;
+        padding: 1em;
+       
+        @include tablet {
+        left: 5em;
+        width: 38em;
+        }
+        @include mobile {
+          top: 0em;
+          left: 0em;
+          width: auto;
+        }
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.466);
+        backdrop-filter: blur(30px);
+
+        .close {
+          position: relative;
+          top: -5em;
+          right: -13.5em;
+          font-size: 22px;
+        }
+        .row {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          flex-wrap: wrap;
+
+          p {
+            margin-left: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: $edgeColor;
+            color: $whiteColor;
+            border-radius: 100px;
+            font-size: 13px;
+            padding: 3px 10px;
+            margin-top: 0;
+          }
+        }
+        .links {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          a {
+            margin: 0 5px;
+            background-color: transparent;
+            border: 1px solid black;
+            border-color: $edgeColor;
+            border-radius: 100px;
+            padding: 5px 10px;
+            font-weight: bold;
+            text-decoration: none;
+            color: $edgeColor;
+            &:hover {
+              background-color: $edgeColor;
+              border-color: transparent;
+              color: $whiteColor;
+            }
+            a {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

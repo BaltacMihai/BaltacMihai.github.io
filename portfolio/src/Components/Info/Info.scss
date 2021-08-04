@@ -1,0 +1,95 @@
+@import "../../global.scss";
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 18em;
+  height: 30em;
+  position: relative;
+  top: 10vh;
+  border-radius: $border-radius;
+  box-shadow: 0 0 1rem 0 $blackColor; 
+  border-radius: $border-radius;
+  background-color: rgba(255, 255, 255, 0.685);
+  backdrop-filter: blur(30px);
+  @include mobile {
+    left: 0;
+    top: 0;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 150px;
+      border-radius: 100px;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 0;
+      strong {
+        font-weight: bold;
+      }
+    }
+    h2 {
+      background-color: $edgeColor;
+      color: $whiteColor;
+      border-radius: 100px;
+      font-size: 15px;
+      padding: 5px 10px;
+      margin-top: 0;
+    }
+    a {
+      margin-left: 10px;
+      .logo {
+        width: 20px;
+        border-radius: 0;
+      }
+    }
+  }
+
+  .logo {
+    width: 20px;
+    border-radius: 0;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      p {
+        margin: 0;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border-radius: 5px solid black;
+    border-color: $edgeColor;
+    border-radius: 100px;
+    padding: 5px 10px;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $edgeColor;
+      border-color: transparent;
+      a {
+        color: $whiteColor;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $edgeColor;
+    }
+  }
+}
