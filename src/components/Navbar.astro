@@ -1,0 +1,53 @@
+---
+---
+
+<nav class="navbar">
+  <h2 class="logo">MB.</h2>
+  <div class="links">
+    <a href="#">About</a><a href="#">Projects</a><a href="#">Resources</a><a
+      href="#">Contact</a
+    >
+  </div>
+</nav>
+
+<script>
+  function getCurrentPage() {
+    const url = window.location.href;
+    if (url.endsWith("/")) {
+      return "home";
+    } else if (url.includes("/about")) {
+      return "about";
+    } else if (url.includes("/contact")) {
+      return "contact";
+    } else {
+      return "unknown";
+    }
+  }
+
+  // Example
+  console.log(getCurrentPage());
+</script>
+
+<style lang="scss">
+  @use "../assets/scss" as *;
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 1rem 2rem;
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+
+      a {
+        font-size: 2rem;
+        color: $cl-text;
+        text-decoration: none;
+      }
+    }
+  }
+</style>
