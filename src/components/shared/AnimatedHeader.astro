@@ -29,7 +29,7 @@ const { text } = Astro.props;
 
     animatedText.innerHTML = newHTMLContent;
 
-    let marginLeft = 0;
+    let marginLeft = -250;
     window.addEventListener("scroll", () => {
       const section = animatedText.parentElement;
       const sectionTop = section.offsetTop;
@@ -40,15 +40,17 @@ const { text } = Astro.props;
 
       if (scrollPos + windowHeight >= sectionTop && scrollPos < sectionBottom) {
         animatedText.style.marginLeft = `${marginLeft}px`;
-        marginLeft += 1; // Adjust this value to change the speed of the animation
+        if (marginLeft < 0) {
+          marginLeft += 1; // Adjust this value to change the speed of the animation
+        }
 
-        const words = animatedText.querySelectorAll(".generated-word");
-        words.forEach((word) => {
-          // if (word.getBoundingClientRect().right > window.innerWidth) {
-          //   console.log(animatedText);
-          //   animatedText.insertBefore(word, animatedText.firstChild);
-          // }
-        });
+        // const words = animatedText.querySelectorAll(".generated-word");
+        // words.forEach((word) => {
+        //   if (word.getBoundingClientRect().right > window.innerWidth) {
+        //     console.log(animatedText);
+        //     animatedText.insertBefore(word, animatedText.firstChild);
+        //   }
+        // });
       }
     });
   });
@@ -60,6 +62,7 @@ const { text } = Astro.props;
     border-bottom: 1px solid black;
     h2 {
       font-size: 10rem;
+      margin-left: -250px;
 
       :global(.generated-word) {
         margin: 0 1.5rem;
