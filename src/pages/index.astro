@@ -1,11 +1,79 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
 ---
 
 <Layout title="Baltac Mihai">
   <main>
     <Navbar />
-    <h1>Under Construction</h1>
+    <section class="hero">
+      <h1>
+        <div class="word">
+          <span class="letter">B</span>
+          <span class="letter">â</span>
+          <span class="letter">l</span>
+          <span class="letter">t</span>
+          <span class="letter">a</span>
+          <span class="letter">c</span>
+        </div>
+        <div class="word">
+          <span class="letter">M</span>
+          <span class="letter">i</span>
+          <span class="letter">h</span>
+          <span class="letter">a</span>
+          <span class="letter">i</span>
+        </div>
+      </h1>
+      <p class="description">
+        A developer and designer who specializes in creating elegant,
+        user-friendly websites for businesses
+
+        <!-- looking to remain ahead of the
+        competition. With an emphasis on modern, up-to-date design that is
+        simple and easy to browse, you can provide your consumers with a smooth
+        experience. -->
+      </p>
+    </section>
+    <section class="about">
+      <AnimatedHeader text="About" />
+    </section>
   </main>
 </Layout>
+
+<style lang="scss">
+  @use "../assets/scss" as *;
+  section {
+    height: 100vh;
+    &.hero {
+      display: flex;
+      flex-direction: column;
+      h1 {
+        font-size: 15rem;
+        .word {
+          display: flex;
+          gap: 1rem;
+
+          &:nth-child(2) {
+            margin-left: 20%;
+          }
+          .letter {
+            &:hover {
+              font-style: italic;
+            }
+          }
+        }
+      }
+      .description {
+        font-size: 2rem;
+        text-align: right;
+        width: 50%;
+        align-self: flex-end;
+        margin-top: 2rem;
+        margin-right: 2rem;
+      }
+    }
+    &.about {
+    }
+  }
+</style>
