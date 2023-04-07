@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import Form from "../components/Form.astro";
 import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
 ---
 
@@ -71,6 +72,10 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
           </div>
         </div>
       </a>
+    </section>
+    <AnimatedHeader text="Contact" />
+    <section class="contact">
+      <Form />
     </section>
   </main>
 </Layout>
@@ -186,6 +191,9 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
           }
         }
       }
+    }
+    &.contact {
+      padding: 2rem;
     }
   }
 </style>

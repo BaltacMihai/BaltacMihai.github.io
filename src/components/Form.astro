@@ -1,0 +1,83 @@
+---
+---
+
+<script type="text/javascript">
+  var submitted = false;
+</script>
+<iframe
+  name="hidden_iframe"
+  id="hidden_iframe"
+  style="display:none;"
+  onload="if(submitted) {window.location='./thankyou';}"
+>
+</iframe>
+<form
+  action="https://docs.google.com/forms/u/1/d/e/1FAIpQLScm4-F2DRKMZbdZ_J_PY_ixOQTiZWxX0Z7YpnG0M2GAwx1QDQ/formResponse"
+  method="post"
+  target="hidden_iframe"
+  onsubmit="submitted=true;"
+>
+  <div class="input-group f-2">
+    <label>First & Last Name</label>
+    <input type="text" name="entry.409288017" />
+  </div>
+  <div class="input-group f-2">
+    <label>Company</label>
+    <input type="text" name="entry.458344659" />
+  </div>
+  <div class="input-group f-1">
+    <label>Email</label>
+    <input type="text" name="entry.1955462360" />
+  </div>
+  <div class="input-group f-1">
+    <label>Message</label>
+    <textarea name="entry.449183688" class="textarea"></textarea>
+  </div>
+  <button type="submit" class="btn">Submit</button>
+</form>
+
+<style lang="scss">
+  @use "../assets/scss" as *;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    gap: 1rem;
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      &.f-1 {
+        flex: 0 0 100%;
+      }
+      &.f-2 {
+        flex: 0 0 calc(50% - 1rem);
+      }
+
+      label {
+        font-size: 2rem;
+      }
+      input,
+      textarea {
+        font-size: 1rem;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        border: 1px solid #676;
+        font-family: $font-family;
+
+        &.textarea {
+          height: 10rem;
+        }
+      }
+    }
+    .btn {
+      bottom: -10rem;
+    }
+  }
+</style>
