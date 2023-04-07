@@ -1,4 +1,6 @@
 ---
+import generateRandomId from "../../assets/utils/generateId";
+
 const {
   text,
   speed = 1,
@@ -7,62 +9,61 @@ const {
 } = Astro.props;
 
 const styleVariableIntialPosition = `${initialPosition}px`;
+const generatedId = generateRandomId(10);
 ---
 
 <div class="border">
-  <h2 class="js_animated_text">{text}</h2>
+  <h2 class="js_animated_text" id={generatedId}>{text}</h2>
 </div>
 
-<script define:vars={{ speed, initialPosition }}>
-  const animatedTextArray = document.querySelectorAll(".js_animated_text");
+<script define:vars={{ speed, initialPosition, generatedId }}>
+  const animatedText = document.getElementById(generatedId);
 
-  animatedTextArray.forEach((animatedText) => {
-    // Generate the repeated word with italics
-    const word = animatedText.innerHTML;
-    const letters = word.split("");
-    const newHTMLContent = letters
-      .map((letter, index) => {
-        let generatedWord = "";
-        letters.forEach((char, i) => {
-          if (i === index) {
-            generatedWord += `<i>${char}</i>`;
-          } else {
-            generatedWord += char;
-          }
-        });
-        return `<span class='generated-word'>${generatedWord}</span>`;
-      })
-      .join("");
-
-    animatedText.innerHTML = newHTMLContent;
-
-    let marginLeft = initialPosition;
-    window.addEventListener("scroll", () => {
-      const section = animatedText.parentElement;
-      const sectionTop = section.offsetTop;
-      const sectionBottom = sectionTop + section.offsetHeight;
-      const windowHeight = window.innerHeight;
-
-      const scrollPos = window.scrollY;
-
-      if (scrollPos + windowHeight >= sectionTop && scrollPos < sectionBottom) {
-        animatedText.style.marginLeft = `${marginLeft}px`;
-        if (marginLeft < 0) {
-          marginLeft += parseInt(speed);
+  // Generate the repeated word with italics
+  const word = animatedText.innerHTML;
+  const letters = word.split("");
+  const newHTMLContent = letters
+    .map((letter, index) => {
+      let generatedWord = "";
+      letters.forEach((char, i) => {
+        if (i === index) {
+          generatedWord += `<i>${char}</i>`;
+        } else {
+          generatedWord += char;
         }
+      });
+      return `<span class='generated-word'>${generatedWord}</span>`;
+    })
+    .join("");
 
-        // const words = animatedText.querySelectorAll(".generated-word");
-        // words.forEach((word) => {
-        //   if (word.getBoundingClientRect().right > window.innerWidth) {
-        //     console.log(animatedText);
-        //     animatedText.insertBefore(word, animatedText.firstChild);
-        //   }
-        // });
-      } else {
-        animatedText.style.marginLeft = `${marginLeft}px`;
-        marginLeft = initialPosition;
+  animatedText.innerHTML = newHTMLContent;
+
+  let marginLeft = initialPosition;
+  window.addEventListener("scroll", () => {
+    const section = animatedText.parentElement;
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    const windowHeight = window.innerHeight;
+
+    const scrollPos = window.scrollY;
+
+    if (scrollPos + windowHeight >= sectionTop && scrollPos < sectionBottom) {
+      animatedText.style.marginLeft = `${marginLeft}px`;
+      if (marginLeft < 0) {
+        marginLeft += parseInt(speed);
       }
-    });
+
+      // const words = animatedText.querySelectorAll(".generated-word");
+      // words.forEach((word) => {
+      //   if (word.getBoundingClientRect().right > window.innerWidth) {
+      //     console.log(animatedText);
+      //     animatedText.insertBefore(word, animatedText.firstChild);
+      //   }
+      // });
+    } else {
+      animatedText.style.marginLeft = `${marginLeft}px`;
+      marginLeft = initialPosition;
+    }
   });
 </script>
 
@@ -77,9 +78,9 @@ const styleVariableIntialPosition = `${initialPosition}px`;
       :global(.generated-word) {
         margin: 0 1.5rem;
 
-        :global(i) {
-          margin-left: -15px;
-        }
+        // :global(i) {
+        //   margin-left: -15px;
+        // }
       }
     }
   }

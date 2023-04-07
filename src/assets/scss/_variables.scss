@@ -12,4 +12,7 @@ $cl-text: $cl-black;
 
 // ---------- Font Family ----------//
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-$font-family: "Open Sans";
+// $font-family: "Open Sans";
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap");
+$font-family: "Space Mono", monospace;

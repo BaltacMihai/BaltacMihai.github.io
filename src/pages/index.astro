@@ -35,9 +35,21 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
         experience. -->
       </p>
     </section>
+    <AnimatedHeader text="About" />
     <section class="about">
-      <AnimatedHeader text="About" />
+      <img src="/PersonalPhoto.png" alt="" />
+      <div class="description">
+        <h3>Bâltac Mihai</h3>
+        <h4>/Bewl-tac Me-hi/</h4>
+        <p>
+          I'm not your typical Designer or Developer. I aim to challenge norm by
+          providing unique and unusual solutions that exceed expectations.
+        </p>
+        <div class="btn">Discover More</div>
+      </div>
     </section>
+    <AnimatedHeader text="Project" />
+    <section class="projects"></section>
   </main>
 </Layout>
 
@@ -74,6 +86,48 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
       }
     }
     &.about {
+      display: flex;
+      gap: 5rem;
+      margin: 5rem 5rem;
+      height: auto;
+      img {
+        width: 500px;
+        height: 500px;
+      }
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 500px;
+        h3 {
+          font-size: 4rem;
+        }
+        h4 {
+          font-size: 2.5rem;
+          color: #ccc;
+        }
+        p {
+          font-size: 2rem;
+          margin-right: 2rem;
+          margin-top: 2rem;
+        }
+        .btn {
+          background-color: $cl-black;
+          width: fit-content;
+          color: $cl-white;
+          padding: 1rem 2rem;
+          font-size: 1.5rem;
+          border-radius: 10px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 </style>
