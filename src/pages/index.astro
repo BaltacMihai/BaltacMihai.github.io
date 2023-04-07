@@ -49,7 +49,29 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
       </div>
     </section>
     <AnimatedHeader text="Project" />
-    <section class="projects"></section>
+    <section class="projects">
+      <a class="img-section" href="#">
+        <img src="/ComponentUI.svg" alt="" />
+        <div class="description">
+          <p class="title">Component UI</p>
+          <div class="roles">
+            <p class="role">Product Owner</p>
+            <p class="role">UI & Ux Designer</p>
+            <p class="role">Frontend</p>
+          </div>
+        </div>
+      </a>
+      <a class="img-section" href="#">
+        <img src="/AlfaStar.svg" alt="" />
+        <div class="description">
+          <p class="title">Alfastar</p>
+          <div class="roles">
+            <p class="role">UI & Ux Designer</p>
+            <p class="role">Frontend</p>
+          </div>
+        </div>
+      </a>
+    </section>
   </main>
 </Layout>
 
@@ -125,6 +147,42 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
 
           &:hover {
             cursor: pointer;
+          }
+        }
+      }
+    }
+    &.projects {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+
+      .img-section {
+        flex: 0 0 50%;
+        text-decoration: none;
+        height: fit-content;
+        img {
+          width: 100%;
+        }
+        .description {
+          color: $cl-text;
+
+          p {
+          }
+          .title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+          }
+          .roles {
+            display: flex;
+            gap: 1rem;
+            color: #676;
+
+            .role {
+              border: 1px solid #676;
+              padding: 1rem;
+              border-radius: 10px;
+            }
           }
         }
       }
