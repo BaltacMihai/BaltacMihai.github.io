@@ -100,13 +100,21 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
 <style lang="scss">
   @use "../assets/scss" as *;
   section {
-    height: 100vh;
+    min-height: 100vh;
+
+    @include phone {
+      height: fit-content !important;
+    }
     &.hero {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 83vh;
       padding: $lg-size 0;
+
+      @include phone {
+        min-height: 82vh;
+      }
 
       h1 {
         font-size: $page-title-size;
@@ -115,6 +123,10 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
           display: flex;
           flex-direction: column;
           align-items: center;
+        }
+
+        @include phone {
+          font-size: 2.5rem;
         }
         .word {
           display: flex;
@@ -156,9 +168,11 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
       $img-size: 500px;
       img {
         flex: 0 0 30%;
-        width: $img-size;
-        height: $img-size;
+        max-width: $img-size;
+        max-height: $img-size;
         object-fit: cover;
+        width: 100%;
+        height: 100%;
 
         @include phone {
           flex: 0 0 100%;
@@ -179,6 +193,7 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
           font-size: 4rem;
           @include phone {
             text-align: center;
+            font-size: 2rem;
           }
         }
         h4 {
@@ -186,6 +201,7 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
           color: #ccc;
           @include phone {
             text-align: center;
+            font-size: 1.5rem;
           }
         }
         p {
@@ -194,6 +210,8 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
           margin-top: 2rem;
           @include phone {
             text-align: center;
+            font-size: 1rem;
+            margin-right: 0;
           }
         }
       }
@@ -211,6 +229,7 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
 
         @include phone {
           flex: 0 0 100%;
+          width: 100%;
         }
         img {
           width: 100%;
@@ -228,6 +247,9 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
             display: flex;
             gap: calc($lg-size / 2);
             color: #676;
+            @include phone {
+              flex-direction: column;
+            }
 
             .role {
               border: 1px solid #676;

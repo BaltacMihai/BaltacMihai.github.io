@@ -83,6 +83,10 @@ const generatedId = generateRandomId(10);
       font-size: $page-title-size;
       margin-left: var(--styleVariableIntialPosition);
 
+      @include phone {
+        font-size: 3.5rem;
+      }
+
       :global(.generated-word) {
         margin: 0 1.5rem;
 
