@@ -78,6 +78,25 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
   </main>
 </Layout>
 
+<script is:inline>
+  const lis = document.querySelectorAll(".letter");
+  let index = 0;
+
+  function animateListItem() {
+    if (index >= lis.length) {
+      index = 0;
+    }
+    lis[index].style.fontStyle = "italic";
+    setTimeout(() => {
+      lis[index].style.fontStyle = "normal";
+      index++;
+      animateListItem();
+    }, 1000);
+  }
+
+  animateListItem();
+</script>
+
 <style lang="scss">
   @use "../assets/scss" as *;
   section {
@@ -88,14 +107,25 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
       justify-content: space-between;
       height: 83vh;
       padding: $lg-size 0;
+
       h1 {
         font-size: $page-title-size;
+        @include tablet {
+          font-size: 7rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
         .word {
           display: flex;
           gap: calc($lg-size / 2);
 
           &:nth-child(2) {
             margin-left: calc($lg-size * 7);
+
+            @include tablet {
+              margin-left: 0;
+            }
           }
           .letter {
             &:hover {
@@ -110,12 +140,18 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
         width: 50%;
         align-self: flex-end;
         margin-top: 2rem;
+
+        @include tablet {
+          text-align: center;
+          width: 100%;
+        }
       }
     }
     &.about {
       display: flex;
       justify-content: space-between;
       height: auto;
+      flex-wrap: wrap;
       margin: $lg-size 0;
       $img-size: 500px;
       img {
@@ -123,6 +159,10 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
         width: $img-size;
         height: $img-size;
         object-fit: cover;
+
+        @include phone {
+          flex: 0 0 100%;
+        }
       }
 
       .description {
@@ -131,29 +171,47 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
         flex-direction: column;
         position: relative;
         height: $img-size;
+
+        @include phone {
+          flex: 0 0 100%;
+        }
         h3 {
           font-size: 4rem;
+          @include phone {
+            text-align: center;
+          }
         }
         h4 {
           font-size: 2.5rem;
           color: #ccc;
+          @include phone {
+            text-align: center;
+          }
         }
         p {
           font-size: 2rem;
           margin-right: 2rem;
           margin-top: 2rem;
+          @include phone {
+            text-align: center;
+          }
         }
       }
     }
     &.projects {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
       margin: $lg-size 0;
 
       .img-section {
         flex: 0 0 47.5%;
         text-decoration: none;
         height: fit-content;
+
+        @include phone {
+          flex: 0 0 100%;
+        }
         img {
           width: 100%;
         }

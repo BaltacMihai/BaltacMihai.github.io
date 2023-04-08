@@ -75,6 +75,10 @@ const generatedId = generateRandomId(10);
 
     width: 100vw;
     margin-left: -$lg-size;
+
+    @include tablet {
+      overflow-x: hidden;
+    }
     h2 {
       font-size: $page-title-size;
       margin-left: var(--styleVariableIntialPosition);

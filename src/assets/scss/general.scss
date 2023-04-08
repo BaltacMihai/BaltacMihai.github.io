@@ -9,11 +9,11 @@
 html {
   background-color: $bg-color;
   font-family: $font-family;
+  overflow-x: hidden;
 
   scroll-behavior: smooth;
 }
 
 main {
   padding: 0 $lg-size;
-  overflow-x: hidden;
 }
