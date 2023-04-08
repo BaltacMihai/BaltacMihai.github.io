@@ -68,11 +68,15 @@ const generatedId = generateRandomId(10);
 </script>
 
 <style lang="scss" define:vars={{ styleVariableIntialPosition, borderSize }}>
+  @use "../../assets/scss" as *;
   .border {
     border-top: var(--borderSize) solid black;
     border-bottom: var(--borderSize) solid black;
+
+    width: 100vw;
+    margin-left: -$lg-size;
     h2 {
-      font-size: 10rem;
+      font-size: $page-title-size;
       margin-left: var(--styleVariableIntialPosition);
 
       :global(.generated-word) {

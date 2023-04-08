@@ -1,13 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
 import Form from "../components/Form.astro";
 import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
 ---
 
 <Layout title="Baltac Mihai">
   <main>
-    <Navbar />
     <section class="hero">
       <h1>
         <div class="word">
@@ -87,14 +85,17 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
     &.hero {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      height: 83vh;
+      padding: $lg-size 0;
       h1 {
-        font-size: 15rem;
+        font-size: $page-title-size;
         .word {
           display: flex;
-          gap: 1rem;
+          gap: calc($lg-size / 2);
 
           &:nth-child(2) {
-            margin-left: 20%;
+            margin-left: calc($lg-size * 7);
           }
           .letter {
             &:hover {
@@ -104,29 +105,32 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
         }
       }
       .description {
-        font-size: 2rem;
+        font-size: $subtitle-size;
         text-align: right;
         width: 50%;
         align-self: flex-end;
         margin-top: 2rem;
-        margin-right: 2rem;
       }
     }
     &.about {
       display: flex;
-      gap: 5rem;
-      margin: 5rem 5rem;
+      justify-content: space-between;
       height: auto;
+      margin: $lg-size 0;
+      $img-size: 500px;
       img {
-        width: 500px;
-        height: 500px;
+        flex: 0 0 30%;
+        width: $img-size;
+        height: $img-size;
+        object-fit: cover;
       }
 
       .description {
+        flex: 0 0 65%;
         display: flex;
         flex-direction: column;
         position: relative;
-        height: 500px;
+        height: $img-size;
         h3 {
           font-size: 4rem;
         }
@@ -139,31 +143,15 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
           margin-right: 2rem;
           margin-top: 2rem;
         }
-        .btn {
-          background-color: $cl-black;
-          width: fit-content;
-          color: $cl-white;
-          padding: 1rem 2rem;
-          font-size: 1.5rem;
-          border-radius: 10px;
-          position: absolute;
-          bottom: 0;
-          right: 0;
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
       }
     }
     &.projects {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 2rem;
+      justify-content: space-between;
+      margin: $lg-size 0;
 
       .img-section {
-        flex: 0 0 50%;
+        flex: 0 0 47.5%;
         text-decoration: none;
         height: fit-content;
         img {
@@ -175,25 +163,26 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
           p {
           }
           .title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: $title-size;
+            margin-bottom: calc($lg-size / 2);
           }
           .roles {
             display: flex;
-            gap: 1rem;
+            gap: calc($lg-size / 2);
             color: #676;
 
             .role {
               border: 1px solid #676;
               padding: 1rem;
               border-radius: 10px;
+              font-size: $text-size;
             }
           }
         }
       }
     }
     &.contact {
-      padding: 2rem;
+      margin: $lg-size 0;
     }
   }
 </style>

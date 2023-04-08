@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap");
+
+$settings: (
+  colors: (
+    white: #fbfffc,
+    black: #060606,
+    grey: #667766,
+  ),
+  fonts: (
+    family: (
+      "Space Mono",
+      monospace,
+    ),
+    sizes: (
+      page-title: 12.5rem,
+      title: 2rem,
+      subtitle: 1.5rem,
+      text: 1rem,
+      subtext: 0.8rem,
+    ),
+  ),
+  border: (
+    radius: 10px,
+  ),
+  layout: (
+    size: (
+      lg: 50px,
+      md: 25px,
+      sm: 0px,
+    ),
+  ),
+);
+
+//#region ---------- Colors  ----------//
+
+$cl-white: map-get(map-get($settings, colors), white);
+$cl-black: map-get(map-get($settings, colors), black);
+$cl-grey: map-get(map-get($settings, colors), grey);
+
+$bg-color: $cl-white;
+$cl-text: $cl-black;
+
+//#endregion
+
+//#region ---------- Font Family ----------//
+$font-family: map-get(map-get($settings, fonts), family);
+
+//#endregion
+
+//#region ---------- Font Size  ----------//
+$page-title-size: map-get(
+  map-get(map-get($settings, fonts), sizes),
+  page-title
+);
+$title-size: map-get(map-get(map-get($settings, fonts), sizes), title);
+$subtitle-size: map-get(map-get(map-get($settings, fonts), sizes), subtitle);
+$text-size: map-get(map-get(map-get($settings, fonts), sizes), text);
+$subtext-size: map-get(map-get(map-get($settings, fonts), sizes), subtext);
+//#endregion
+
+//#region ---------- Border  ----------//
+$border-radius: map-get(map-get($settings, border), radius);
+//#endregion
+
+//#region ----- Layout -------- //
+$lg-size: map-get(map-get(map-get($settings, layout), size), lg);
+$md-size: map-get(map-get(map-get($settings, layout), size), md);
+$sm-size: map-get(map-get(map-get($settings, layout), size), sm);
+//#endregion

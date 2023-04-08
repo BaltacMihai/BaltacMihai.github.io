@@ -1,0 +1,19 @@
+@use "./settings" as *;
+@use "./partials" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: $bg-color;
+  font-family: $font-family;
+
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+main {
+  padding: 0 $lg-size;
+}
