@@ -27,14 +27,109 @@
   </div>
   <div class="input-group f-1">
     <label>Email</label>
-    <input type="text" name="entry.1955462360" />
+    <input type="email" name="entry.1955462360" />
   </div>
   <div class="input-group f-1">
     <label>Message</label>
     <textarea name="entry.449183688" class="textarea"></textarea>
   </div>
-  <button type="submit" class="btn">Submit</button>
+  <button type="submit" class="btn" id="btn">Submit</button>
 </form>
+
+<script>
+  const btn = document.getElementById("btn");
+
+  const nameInput = document.getElementsByName("entry.409288017")[0];
+  const companyInput = document.getElementsByName("entry.458344659")[0];
+  const emailInput = document.getElementsByName("entry.1955462360")[0];
+  const messageInput = document.getElementsByName("entry.449183688")[0];
+
+  const nameRegex = /^[a-zA-Z\s]+$/;
+  const companyRegex = /^[a-zA-Z\s]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const messageRegex = /^.{1,1000}$/;
+  let isValid = true;
+
+  const invalidBorder = "1px solid red";
+  const validBorder = "1px solid #676";
+
+  function check(e) {
+    let typeRegex = null;
+    console.log(e);
+
+    switch (e.target.type) {
+      case "text":
+        typeRegex = nameRegex;
+        break;
+      case "email":
+        typeRegex = emailRegex;
+        break;
+      default:
+        if (e.target.nodeName === "TEXTAREA") {
+          typeRegex = messageRegex;
+        }
+        break;
+    }
+
+    console.log(typeRegex);
+    if (!typeRegex?.test(e.target.value.trim())) {
+      e.target.style.border = invalidBorder;
+    } else {
+      e.target.style.border = validBorder;
+    }
+  }
+
+  function checkForm(e) {
+    const name = nameInput.value.trim();
+    const company = companyInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!nameRegex.test(name)) {
+      isValid = false;
+      alert("Please enter a valid name.");
+      nameInput.style.border = invalidBorder;
+    } else {
+      isValid = true;
+    }
+
+    if (!companyRegex.test(company)) {
+      isValid = false;
+      alert("Please enter a valid company name.");
+      companyInput.style.border = invalidBorder;
+    } else {
+      isValid = true;
+    }
+
+    if (!emailRegex.test(email)) {
+      isValid = false;
+      alert("Please enter a valid email address.");
+      emailInput.style.border = invalidBorder;
+    } else {
+      isValid = true;
+    }
+
+    if (!messageRegex.test(message)) {
+      isValid = false;
+      messageInput.style.border = invalidBorder;
+      alert("Please enter a message between 1 and 1000 characters.");
+    } else {
+      isValid = true;
+    }
+
+    if (!isValid) {
+      e.preventDefault();
+      //TODO: Doesn't Work the filter, you can baypass it
+      //TODO: YOu can send a request 1000 times
+    }
+  }
+
+  btn.addEventListener("click", checkForm);
+  nameInput.addEventListener("change", check);
+  companyInput.addEventListener("change", check);
+  emailInput.addEventListener("change", check);
+  messageInput.addEventListener("change", check);
+</script>
 
 <style lang="scss">
   @use "../assets/scss" as *;
