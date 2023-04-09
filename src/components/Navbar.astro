@@ -7,7 +7,7 @@ const linkMenuId = "link-menu-" + generateRandomId(5);
 ---
 
 <nav class="navbar">
-  <h2 class="logo">MB.</h2>
+  <a class="logo" href="/">MB.</a>
   <div class="menu">
     <img src="icons/menu.svg" id={openMenuId} />
     <img src="icons/close.svg" id={closeMenuId} style="display: none;" />
@@ -67,8 +67,11 @@ const linkMenuId = "link-menu-" + generateRandomId(5);
 
     margin: calc($lg-size / 3) $lg-size;
 
-    h2 {
+    .logo {
       font-size: $subtitle-size;
+      color: $cl-text;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .menu {
