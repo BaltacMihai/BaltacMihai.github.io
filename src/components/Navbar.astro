@@ -1,9 +1,18 @@
 ---
+import generateRandomId from "../assets/utils/generateId";
+
+const openMenuId = "open-menu-" + generateRandomId(5);
+const closeMenuId = "close-menu-" + generateRandomId(5);
+const linkMenuId = "link-menu-" + generateRandomId(5);
 ---
 
 <nav class="navbar">
   <h2 class="logo">MB.</h2>
-  <div class="links">
+  <div class="menu">
+    <img src="icons/menu.svg" id={openMenuId} />
+    <img src="icons/close.svg" id={closeMenuId} style="display: none;" />
+  </div>
+  <div class="links" id={linkMenuId}>
     <a href="#">About</a>
     <a href="#">Projects</a>
     <a href="#">Resources</a>
@@ -11,7 +20,7 @@
   </div>
 </nav>
 
-<script>
+<script define:vars={{ openMenuId, closeMenuId, linkMenuId }} is:inline>
   function getCurrentPage() {
     const url = window.location.href;
     if (url.endsWith("/")) {
@@ -24,6 +33,28 @@
       return "unknown";
     }
   }
+
+  const toggleMenu = () => {
+    const openIcon = document.getElementById(openMenuId);
+    const closeIcon = document.getElementById(closeMenuId);
+    const linksMenu = document.getElementById(linkMenuId);
+
+    if (openIcon.style.display === "none") {
+      openIcon.style.display = "flex";
+      closeIcon.style.display = "none";
+      linksMenu.style.display = "none";
+      document.documentElement.style.overflow = "auto";
+    } else {
+      openIcon.style.display = "none";
+      closeIcon.style.display = "flex";
+      linksMenu.style.display = "flex";
+      document.documentElement.style.overflow = "hidden";
+    }
+  };
+  const openIcon = document.getElementById(openMenuId);
+  const closeIcon = document.getElementById(closeMenuId);
+  openIcon.addEventListener("click", toggleMenu);
+  closeIcon.addEventListener("click", toggleMenu);
 </script>
 
 <style lang="scss">
@@ -39,6 +70,23 @@
       font-size: $subtitle-size;
     }
 
+    .menu {
+      display: none;
+      position: relative;
+      @include phone {
+        display: flex;
+      }
+
+      img {
+        position: absolute;
+        right: 0;
+        top: -0.75rem;
+        width: 2rem;
+        cursor: pointer;
+        z-index: 99;
+      }
+    }
+
     .links {
       display: flex;
       align-items: center;
@@ -47,6 +95,14 @@
 
       @include phone {
         display: none;
+        position: fixed;
+        background-color: $bg-color;
+        top: 0%;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
       }
 
       a {
