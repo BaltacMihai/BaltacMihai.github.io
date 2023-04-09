@@ -214,6 +214,13 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
             margin-right: 0;
           }
         }
+
+        .btn {
+          @include phone {
+            position: relative;
+            margin: 3rem auto;
+          }
+        }
       }
     }
     &.projects {
@@ -248,7 +255,7 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
             gap: calc($lg-size / 2);
             color: #676;
             @include phone {
-              flex-direction: column;
+              flex-wrap: wrap;
             }
 
             .role {
@@ -256,6 +263,10 @@ import AnimatedHeader from "../components/shared/AnimatedHeader.astro";
               padding: 1rem;
               border-radius: 10px;
               font-size: $text-size;
+
+              @include phone {
+                width: fit-content;
+              }
             }
           }
         }
