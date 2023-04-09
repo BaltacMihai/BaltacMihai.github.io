@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Not Found | Baltac Mihai">
+  <main>
+    <h1>404</h1>
+    <h2>Page not found</h2>
+    <p>
+      I apologize for any inconvenience this may have caused. The page may have
+      been moved or deleted, the link you followed may have been broken.
+    </p>
+    <p>
+      You may still view my portfolio by going to the homepage or using the
+      navigation menu to explore my work, so don't worry. Even better, you might
+      learn something amazing along the way!
+    </p>
+    <a href="/" class="btn">Back to homepage!</a>
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use "../assets/scss" as *;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include phone {
+      margin-bottom: 10%;
+    }
+
+    h1 {
+      font-size: $page-title-size;
+      @include tablet {
+        font-size: 7rem;
+      }
+
+      @include phone {
+        font-size: 2.5rem;
+      }
+    }
+
+    h2 {
+      margin-top: -1rem;
+      color: $cl-grey;
+
+      font-size: $title-size;
+      @include tablet {
+        font-size: 7rem;
+      }
+
+      @include phone {
+        font-size: 2.5rem;
+      }
+    }
+    p {
+      font-size: 1.5rem;
+      text-align: center;
+      width: 75%;
+      margin: 1rem 0;
+    }
+    a.btn {
+      position: relative;
+      text-decoration: none;
+    }
+  }
+</style>
