@@ -48,14 +48,13 @@
   const companyRegex = /^[a-zA-Z\s]+$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const messageRegex = /^.{1,1000}$/;
-  let isValid = true;
+  let isFormSent = false;
 
   const invalidBorder = "1px solid red";
   const validBorder = "1px solid #676";
 
   function check(e) {
     let typeRegex = null;
-    console.log(e);
 
     switch (e.target.type) {
       case "text":
@@ -71,7 +70,6 @@
         break;
     }
 
-    console.log(typeRegex);
     if (!typeRegex?.test(e.target.value.trim())) {
       e.target.style.border = invalidBorder;
     } else {
@@ -85,42 +83,41 @@
     const email = emailInput.value.trim();
     const message = messageInput.value.trim();
 
+    if (isFormSent) {
+      e.preventDefault();
+    }
+    isFormSent = true;
+
     if (!nameRegex.test(name)) {
-      isValid = false;
+      isFormSent = false;
+
       alert("Please enter a valid name.");
       nameInput.style.border = invalidBorder;
-    } else {
-      isValid = true;
+      e.preventDefault();
     }
 
     if (!companyRegex.test(company)) {
-      isValid = false;
+      isFormSent = false;
+
       alert("Please enter a valid company name.");
       companyInput.style.border = invalidBorder;
-    } else {
-      isValid = true;
+      e.preventDefault();
     }
 
     if (!emailRegex.test(email)) {
-      isValid = false;
+      isFormSent = false;
+
       alert("Please enter a valid email address.");
       emailInput.style.border = invalidBorder;
-    } else {
-      isValid = true;
+      e.preventDefault();
     }
 
     if (!messageRegex.test(message)) {
-      isValid = false;
+      isFormSent = false;
+
       messageInput.style.border = invalidBorder;
       alert("Please enter a message between 1 and 1000 characters.");
-    } else {
-      isValid = true;
-    }
-
-    if (!isValid) {
       e.preventDefault();
-      //TODO: Doesn't Work the filter, you can baypass it
-      //TODO: YOu can send a request 1000 times
     }
   }
 
