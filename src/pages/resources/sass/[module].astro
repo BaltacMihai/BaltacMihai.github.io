@@ -1,0 +1,199 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const rawModules = await Astro.glob("../../../resources/sass/content/*.mdx");
+
+  return rawModules.map((module) => ({
+    params: {
+      module: module.frontmatter.name,
+    },
+    props: {
+      module,
+    },
+  }));
+}
+
+const { Content, frontmatter, internalLinks } = Astro.props.module;
+---
+
+<Layout title={`${frontmatter.path}: ${frontmatter.title}`}>
+  <div class="guide-page">
+    <div class="row guide-info">
+      <!-- <img
+        src={frontmatter.icon}
+        alt={frontmatter.title + " icon"}
+        class="icon"
+        width={frontmatter.iconWidth ? frontmatter.iconWidth : 150}
+      /> -->
+      <div class="col">
+        <h1 class="title">{frontmatter.title}</h1>
+        <h3>{`${frontmatter.path}`}</h3>
+        <p>{frontmatter.excerpt}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <Content />
+    </div>
+    <div class="aside" id="aside">
+      <h2>Lesson Contents:</h2>
+      {
+        internalLinks?.map((section) => {
+          return (
+            <a href={"#" + section.link} id={"nav_" + section.link}>
+              {section.name}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  function isInViewport(rect, windowHeight, windowWidth) {
+    // Check if the top or bottom edge of the element is within the viewport
+    const topVisible = rect.top >= 0 && rect.top <= windowHeight;
+    const bottomVisible = rect.bottom >= 0 && rect.bottom <= windowHeight;
+
+    // Check if the left or right edge of the element is within the viewport
+    const leftVisible = rect.left >= 0 && rect.left <= windowWidth;
+    const rightVisible = rect.right >= 0 && rect.right <= windowWidth;
+
+    return (topVisible || bottomVisible) && (leftVisible || rightVisible);
+  }
+
+  function show(theId, element, section, observer) {
+    if (section && element) {
+      observer.observe(section);
+    }
+  }
+
+  const aside = document.querySelector("div.aside");
+  const anchors = Array.from(aside.querySelectorAll("a"));
+  const hrefs = anchors.map((a) => a.getAttribute("href"));
+  const ids = hrefs?.map((e) => e.slice(1, e.length));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const element = document.querySelector("#nav_" + entry.target.id);
+      if (element) {
+        if (
+          isInViewport(
+            entry.boundingClientRect,
+            window.innerHeight,
+            window.innerWidth
+          )
+        ) {
+          element.classList.add("active");
+        } else {
+          element.classList.remove("active");
+        }
+      }
+    });
+  });
+
+  ids.forEach((id) => {
+    const section = document.querySelector("#" + id);
+    if (section) {
+      show(id, document.querySelector("#nav_" + id), section, observer);
+    }
+  });
+
+  document.addEventListener(
+    "scroll",
+    function () {
+      observer.observe(aside);
+    },
+    {
+      passive: true,
+    }
+  );
+</script>
+
+<style>
+  .aside {
+    position: fixed;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    top: 15%;
+  }
+
+  .aside h2 {
+    margin-bottom: 2rem;
+  }
+
+  .aside a {
+    padding-left: 1rem;
+    border-left: 3px solid #ccc;
+    padding: 0.5rem 1rem;
+    color: #999;
+  }
+
+  .aside a:hover,
+  .aside a.active {
+    border-color: #5d60ef;
+    color: #5d60ef;
+    background-color: #ded7fb47;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+  }
+
+  .guide-info h3 {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 1262px) {
+    .aside {
+      display: none;
+    }
+  }
+  .guide-page {
+    padding: 1rem 10%;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+  }
+  img {
+    margin-right: 2rem;
+  }
+
+  @media (max-width: 1025px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+
+  .col {
+    width: 65%;
+  }
+  @media (max-width: 1025px) {
+    .col {
+      width: 100%;
+    }
+  }
+
+  .icon {
+    width: 200px;
+  }
+  .title {
+    color: #5d60ef;
+  }
+
+  .content {
+    width: 80%;
+    padding: 3rem 0px;
+  }
+
+  @media (max-width: 1025px) {
+    .content {
+      width: 100%;
+      padding: 2rem 0;
+    }
+  }
+</style>

@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionDivider from "../components/shared/SectionDivider.astro";
+---
+
+<Layout title="About | Baltac Mihai">
+  <main>
+    <h1>About me</h1>
+    <section class="description">
+      <div class="name">
+        <h3>Bâltac Mihai</h3>
+        <h4>/Bewl-tac Me-hi/</h4>
+      </div>
+      <button class="btn">Resume</button>
+      <div class="text">
+        <p>
+          As a developer and designer, I like creating unique and effective
+          designs for businesses that help them stand out from the crowd. I have
+          a strong interest in storytelling and the ability of websites to
+          transform a boring idea into an exciting one. I'm interested in
+          developing user-friendly interfaces that are straightforward and easy
+          to use.
+        </p><p>
+          Sharing my knowledge and experience with others makes me very happy. I
+          appreciate educating others about technology and how to apply it in
+          website design.
+        </p>
+        <p>
+          Apart from my work activities, I have a significant interest in Afro
+          and Latin dance. This creative activity keeps me stimulated and
+          motivated, and it gives my job as a designer a new perspective.
+        </p>
+      </div>
+    </section>
+    <SectionDivider text="Journey" />
+    <section>
+      <div class="table">
+        <div class="title">Experience</div>
+        <div class="item">
+          <div class="date">2020 - 2022</div>
+          <div class="content">UX Engeener @ Exe</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style lang="scss">
+    @use "../assets/scss" as *;
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+
+      @include mobile {
+        margin-bottom: 10%;
+      }
+
+      h1 {
+        @extend %header-size;
+        margin-top: 7.5rem;
+      }
+
+      .description {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        .name {
+          flex: 0 0 50%;
+
+          @include mobile {
+            flex: 0 0 100%;
+          }
+          h3 {
+            @extend %header-size;
+          }
+          h4 {
+            @extend %subtitle-size;
+            color: #ccc;
+            @include mobile {
+              text-align: center;
+            }
+          }
+        }
+
+        .btn {
+          position: relative;
+          @extend %paragraf-size;
+
+          @include mobile {
+            flex: 0 0 100%;
+            margin-top: 2rem;
+          }
+        }
+
+        .text {
+          flex: 0 0 100%;
+          margin: 1rem 0;
+          p {
+            margin: 2rem 0;
+            margin-bottom: 3rem;
+            @extend %paragraf-size;
+            @include mobile {
+              text-align: center;
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  </style>
+</Layout>

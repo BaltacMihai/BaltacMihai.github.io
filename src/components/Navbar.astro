@@ -13,7 +13,7 @@ const linkMenuId = "link-menu-" + generateRandomId(5);
     <img src="../icons/close.svg" id={closeMenuId} style="display: none;" />
   </div>
   <div class="links" id={linkMenuId}>
-    <a href="#">About</a>
+    <a href="/about">About</a>
     <a href="#">Projects</a>
     <a href="#">Resources</a>
     <a href="#">Contact</a>
@@ -64,8 +64,8 @@ const linkMenuId = "link-menu-" + generateRandomId(5);
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    margin: calc($lg-size / 3) $lg-size;
+    @extend %layout-size;
+    padding-top: 15px;
 
     .logo {
       font-size: $subtitle-size;
@@ -77,7 +77,7 @@ const linkMenuId = "link-menu-" + generateRandomId(5);
     .menu {
       display: none;
       position: relative;
-      @include phone {
+      @include mobile {
         display: flex;
       }
 
@@ -97,7 +97,7 @@ const linkMenuId = "link-menu-" + generateRandomId(5);
       justify-content: space-between;
       gap: $lg-size;
 
-      @include phone {
+      @include mobile {
         display: none;
         position: fixed;
         background-color: $bg-color;

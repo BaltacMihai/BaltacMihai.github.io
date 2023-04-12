@@ -1,2 +1,3 @@
 @forward "variables";
 @forward "responsive";
+@forward "predefined" hide $lg-size, $md-size, $sm-size;

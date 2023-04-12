@@ -33,19 +33,13 @@ import Layout from "../layouts/Layout.astro";
       justify-content: center;
       gap: 2rem;
 
-      @include phone {
+      @include mobile {
         margin-bottom: 10%;
       }
 
       h1 {
-        font-size: $page-title-size;
-        @include tablet {
-          font-size: 7rem;
-        }
-
-        @include phone {
-          font-size: 2.5rem;
-        }
+        @extend %header-size;
+        margin-top: 7.5rem;
       }
 
       h2 {
@@ -53,17 +47,10 @@ import Layout from "../layouts/Layout.astro";
         color: $cl-grey;
         text-align: center;
 
-        font-size: $title-size;
-        @include tablet {
-          font-size: 5.5rem;
-        }
-
-        @include phone {
-          font-size: 2rem;
-        }
+        @extend %subtitle-size;
       }
       p {
-        font-size: 1.5rem;
+        @extend %paragraf-size;
         text-align: center;
         width: 75%;
         margin: 1rem 0;
@@ -71,6 +58,7 @@ import Layout from "../layouts/Layout.astro";
       a.btn {
         position: relative;
         text-decoration: none;
+        @extend %paragraf-size;
       }
     }
   </style>

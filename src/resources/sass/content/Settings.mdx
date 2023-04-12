@@ -1,0 +1,273 @@
+---
+title: Settings
+name: settings
+excerpt:
+  This module provides the steps you must do before beginning to work with and
+  compile Sass, as well as the output of sass files.
+order: 1
+---
+
+import CodeSnippet from "./../../../resources/sass/shared/CodeSnippet.astro";
+import "./../../../resources/sass/shared/style.css";
+
+export const internalLinks = [
+  { link: "install", name: "Install the module" },
+  { link: "compile", name: "Compile the sass files" },
+  { link: "cssfiles", name: "Types of css files" },
+  { link: "temporaryFiles", name: "Temporary Files" },
+  { link: "compileChaos", name: "Compiled Chaos" },
+];
+
+{/* Page Content */}
+
+<section id={internalLinks[0].link}>
+  <h2>{internalLinks[0].name}</h2>
+  <p>
+    To build a sass file, follow these two steps. The first step is to install
+    the Sass module, followed by compiling the Sass files into CSS. There are
+    several approaches you may use depending on your frontend framework of
+    choice, because some frameworks will automatically compile your sass while
+    others will not.
+  </p>
+  <h3>The first step is to install the Sass module.</h3>
+  <p>
+    You will need a package manager to install the sass module ( like npm or
+    yarn) and also Node.js . You may run the following scripts to see if you
+    have these packages installed:
+  </p>
+  <CodeSnippet
+    content="node -v; 
+    npm -v;"
+    lang="nginx"
+  />
+  <p>
+    If you don't already have them, you may get them here:
+    <a
+      href="https://treehouse.github.io/installation-guides/windows/node-windows.html"
+      class="link"
+      target="_blank"
+    >
+      Install Node.js and Npm
+    </a>
+    <p>
+      In most circumstances, you must install the Sass module in the project as
+      follows:
+    </p>
+  </p>
+  <CodeSnippet content={"npm i sass;"} lang="nginx" />
+  <i>
+    <b>Note: </b>The only disadvantage of using this method is that certain
+    frameworks can compile your Sass files in their own way, so you must install
+    it in a particular manner ( ex.
+    <a
+      href="https://vue-loader.vuejs.org/guide/pre-processors.html#sass"
+      class="link"
+      target="_blank"
+    >
+      Vue - Using Pre-Processors
+    </a>
+    ).
+  </i>
+</section>
+
+<section id={internalLinks[1].link}>
+  <h2>{internalLinks[1].name}</h2>
+  <p>
+    There are two techniques for compiling the files. The first is to compile
+    the sass files into CSS, and the second is to compile the sass files using
+    the chosen framework.
+  </p>
+  <div class="mt-1">
+    <p>
+      <b>1.</b> The first way (compiling the sass files manually into CSS) may
+      be used wherever. To build a file, enter the following code in the
+      terminal:
+    </p>
+    <CodeSnippet
+      content={
+        "sass source/stylesheets/index.scss build/stylesheets/index.css;"
+      }
+      lang="scss"
+    />
+    <i>
+      <b>Note: </b>
+      If we run this command and don't already have an index.css file, the file will
+      be created for us without further action from us. If you execute this command
+      and we have the file, the compiled code from the scss will take the place of
+      the css. Any CSS modifications that are only in the css files and not the scss
+      files should be saved in a temporary file. See
+      <a href={`#${internalLinks[3].link}`} class="link">
+        temporary files.
+      </a>
+    </i>
+    <h3>Explication: </h3>
+    <p>
+      Assuming this is how the project looks, we want to convert
+      <b>index.scss</b> into <b>index.css</b>.
+    </p>
+    <img
+      src="/resources/sass-settings/complie-folder.svg"
+      style="width: 30%;margin:2.5rem auto;"
+    />
+    <p>
+      As a result, we have the instruction below. Because "sass" is the name of
+      the command, it starts with that word. The other 2 arguments specify where
+      we get the sass file and where we want to compile it .
+    </p>
+    <img
+      src="/resources/sass-settings/compile-command.svg"
+      style="width: 50%;margin:2.5rem auto;"
+    />
+    <p>
+      Hence, in order to compile, import the Sass file similarly to how you
+      imported the CSS file, and the framework will take care of the rest.
+    </p>
+    <p>
+      Using the --watch flag, you can additionally watch certain files or
+      folders. The watch flag instructs Sass to monitor your source files for
+      modifications and re-compile CSS after each Sass save. You would simply
+      add the watch flag to your command, like in the following example, if you
+      wanted to monitor (rather than manually build) your input.scss file:
+    </p>
+    <CodeSnippet
+      content="sass --watch source/stylesheets/index.scss build/stylesheets/index.css;"
+      lang="scss"
+    />
+  </div>
+  <div class="mt-1">
+    <p>
+      <b>2.</b> The second approach is having the framework automatically
+      compile the sass files. To ensure that it functions in your framework, you
+      must check for this.
+    </p>
+  </div>
+  <h3>
+    What happens if you manually compile the file and the framework does the
+    same?
+  </h3>
+  <a href={`#${internalLinks[4].link}`} class="link">
+    See the Compiled Chaos
+  </a>
+</section>
+
+<section id={internalLinks[2].link}>
+  <h2>{internalLinks[2].name}</h2>
+  <p>Sass has the ability to produce three different kinds of files. </p>
+  <h3>[file-name].css</h3>
+  <p>
+    Is the file with all the compiled code, together with the comments, spaces,
+    and order.
+  </p>
+  <h3>[file-name].css.map</h3>
+  <p>
+    By default, a file with the ".map" extension is created when you compile a
+    Sass file into CSS. A CSS source map is a file that links the CSS code that
+    has been produced with its original Sass source code.
+  </p>
+  <p>
+    The name, line numbers, and column positions of the original Sass file are
+    all included in a file known as a CSS source map. When employing browser
+    developer tools, it is utilized by web developers and designers to
+    troubleshoot their Sass and CSS code.
+  </p>
+  <h3>[file-name].min.css</h3>
+  <p>
+    With the —style option with the value set to compressed, Sass can produce
+    CSS files that have been compressed. A minified version of the original Sass
+    file, free of any extraneous whitespace and comments, will be produced as
+    the final CSS file.
+  </p>
+  <p>
+    For instance, you can run the following command in the terminal to convert a
+    Sass file named styles.scss into a minified CSS file named styles.min.css:
+  </p>
+  <CodeSnippet
+    content="sass [file-name].scss [file-name].min.css --style compressed
+     "
+    lang="scss"
+  />
+  <p>
+    By doing this, a minified CSS file called styles.min.css will be created,
+    which can be used in production settings to minimize file size and speed up
+    the loading of web pages.
+  </p>
+  <i>
+    <b>Note: </b>
+    It should be noted that while minifying CSS code can aid in performance improvement,
+    it can also make the code more difficult to comprehend and maintain. For development
+    and debugging purposes, it is frequently advised to preserve a non-minified version
+    of the CSS code.
+  </i>
+</section>
+
+<section id={internalLinks[3].link}>
+  <h2>{internalLinks[3].name}</h2>
+  <p>
+    You can make a temporary CSS file if you're not the only developer working
+    on the project (and you don't want the other developers to change the
+    structure or they don't want to change the scss) or if you need to make a
+    quick fix. If you only want to make a few simple adjustments, this is the
+    perfect scenario.
+  </p>
+  <b>But, keep in mind... </b>
+  <p>
+    You are working with sass, so, occasionally you need to look at your temp
+    file and try to integrate into your sass/scss files. You won't have the
+    opportunities that sass will provide you with if you don't do this. You will
+    lose the capacity to have all the items in the same place.
+  </p>
+</section>
+
+<section id={internalLinks[4].link}>
+  <h2>{internalLinks[4].name}</h2>
+  <p>
+    When your compiled files look like this, the Compiled Chaos will appear:
+  </p>
+  <img
+    src="/resources/sass-settings/compileChaos.svg"
+    style="width: 30%;margin:2.5rem auto;"
+  />
+  <p>
+    In some circumstances, the [file-name].min.css file will take priority or be
+    the only one needed to give our site the correct layout. Some developers
+    might attempt to execute the command in this situation to change the
+    sass/scss file to [file-name].min.css. This strategy will result in the
+    following issues:
+  </p>
+  <p>
+    1&#41; The original.css file will turn into a "ghost" when using outdated
+    CSS.
+  </p>
+  <p>
+    2&#41; Since the [file-name].min.css is no longer minified, it will no
+    longer serve its intended purpose of reducing file size and accelerating web
+    page rendering.
+  </p>
+  <h3>The solution:</h3>
+  <p>
+    The [file-name].map files should be ignored; they are only there to assist
+    the developer in debugging the css in devtools.
+  </p>
+  <p>
+    The [file-name].css and [file-name].min.css files are now the cause of less
+    trouble. You can use the right technique to immediately modify both files
+    while keeping an eye out for changes to resolve this. Therefore, we want to
+    normally build the [file-name].css file and minify the [file-name].min.css
+    file. The instruction below can be used to accomplish this.
+  </p>
+  <CodeSnippet
+    content={
+      "sass --watch sass/[file-name].scss:css/[file-name].css --watch scss/[file-name].scss:css/[file-name].min.css --style compressed"
+    }
+    lang="scss"
+  />
+  <h3>Not a solution.</h3>
+  <p>
+    It is not a solution to remove [file-name].min.css because in some cases the
+    app will get the layout from this file, even if the website is in developer
+    mode and maintaining the style. Try "Force Refresh" or "Clean the Cache" to
+    see the differences. It is also possible for some changes to appear when
+    building the project, so it is still possible for in develop mode to look
+    fine and in production to break.
+  </p>
+</section>

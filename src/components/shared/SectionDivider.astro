@@ -16,29 +16,21 @@ const generatedId = generateRandomId(10);
   <h2 class="js_animated_text" id={generatedId}>{text}</h2>
 </div>
 
-<script define:vars={{ speed, initialPosition, generatedId }}>
+<script define:vars={{ speed, initialPosition, generatedId, text }}>
   const animatedText = document.getElementById(generatedId);
+  const wordWidth = animatedText.offsetWidth;
 
-  // Generate the repeated word with italics
-  const word = animatedText.innerHTML;
-  const letters = word.split("");
-  const newHTMLContent = letters
-    .map((letter, index) => {
-      let generatedWord = "";
-      letters.forEach((char, i) => {
-        if (i === index) {
-          generatedWord += `<i>${char}</i>`;
-        } else {
-          generatedWord += char;
-        }
-      });
-      return `<span class='generated-word'>${generatedWord}</span>`;
-    })
-    .join("");
+  let wordsArray = [];
 
-  animatedText.innerHTML = newHTMLContent;
+  for (let i = 0; i < window.screen.width / wordWidth; i++) {
+    wordsArray.push(`<span class='generated-word'>${text}</span>`);
+  }
+
+  animatedText.innerHTML = wordsArray.join("");
 
   let marginLeft = initialPosition;
+  let lastScrollPos = 0;
+
   window.addEventListener("scroll", () => {
     const section = animatedText.parentElement;
     const sectionTop = section.offsetTop;
@@ -48,18 +40,22 @@ const generatedId = generateRandomId(10);
     const scrollPos = window.scrollY;
 
     if (scrollPos + windowHeight >= sectionTop && scrollPos < sectionBottom) {
-      animatedText.style.marginLeft = `${marginLeft}px`;
-      if (marginLeft < 0) {
-        marginLeft += parseInt(speed);
+      // If scrolling down, move text from left to right
+      if (scrollPos > lastScrollPos) {
+        animatedText.style.marginLeft = `${marginLeft}px`;
+        if (marginLeft < 0) {
+          marginLeft += parseInt(speed);
+        }
+      }
+      // If scrolling up, move text from right to left
+      else if (scrollPos < lastScrollPos) {
+        animatedText.style.marginLeft = `${marginLeft}px`;
+        if (marginLeft > -animatedText.offsetWidth) {
+          marginLeft -= parseInt(speed);
+        }
       }
 
-      // const words = animatedText.querySelectorAll(".generated-word");
-      // words.forEach((word) => {
-      //   if (word.getBoundingClientRect().right > window.innerWidth) {
-      //     console.log(animatedText);
-      //     animatedText.insertBefore(word, animatedText.firstChild);
-      //   }
-      // });
+      lastScrollPos = scrollPos;
     } else {
       animatedText.style.marginLeft = `${marginLeft}px`;
       marginLeft = initialPosition;
@@ -69,21 +65,24 @@ const generatedId = generateRandomId(10);
 
 <style lang="scss" define:vars={{ styleVariableIntialPosition, borderSize }}>
   @use "../../assets/scss" as *;
+
   .border {
     border-top: var(--borderSize) solid black;
     border-bottom: var(--borderSize) solid black;
 
     width: 100vw;
-    margin-left: -$lg-size;
+    margin-left: -13%;
 
     @include tablet {
       overflow-x: hidden;
+      margin-left: -6%;
     }
     h2 {
-      font-size: $page-title-size;
       margin-left: var(--styleVariableIntialPosition);
+      width: fit-content;
+      @extend %header-size;
 
-      @include phone {
+      @include mobile {
         font-size: 3.5rem;
       }
 

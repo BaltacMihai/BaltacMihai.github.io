@@ -1,0 +1,76 @@
+---
+import { Code } from "astro/components";
+const { content, lang } = Astro.props;
+import clipboardIcon from "./../../../assets/icons/clipboard.svg";
+---
+
+<div class="codeBlock">
+  <Code code={content} lang={lang} theme="dark-plus" wrap />
+  <img
+    src={clipboardIcon}
+    alt="Clipboard Icon"
+    class="icon js-copyElement"
+    data-content={content}
+  />
+  <p class="toast" id="toast">Code copied to clipboard !</p>
+</div>
+<script>
+  const buttons = document.querySelectorAll("img.js-copyElement");
+
+  // Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const content = button.dataset.content;
+      navigator.clipboard.writeText(content);
+      function delay(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      // Get a reference to the toast element in the DOM
+      const toast = document.getElementById("toast");
+
+      // Show the toast by setting its display style property to "block"
+      toast.style.display = "block";
+
+      // Wait for 2500 milliseconds using the delay function,
+      // and then hide the toast by setting its display style property to "none"
+      delay(2500).then(() => {
+        toast.style.display = "none";
+      });
+    });
+  });
+</script>
+
+<style lang="scss">
+  .codeBlock {
+    display: flex;
+    position: relative;
+    margin: 2rem 0;
+
+    .icon {
+      position: absolute;
+      right: 1rem;
+      top: 0.75rem;
+      z-index: 2;
+      cursor: pointer;
+      margin: 0;
+      width: 25px;
+    }
+  }
+  .toast {
+    background-color: #5d60ef;
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    position: fixed;
+    bottom: 4vh;
+    z-index: 999;
+    display: none;
+
+    left: 0;
+    right: 0;
+    width: fit-content;
+    margin: 0 auto !important;
+  }
+</style>

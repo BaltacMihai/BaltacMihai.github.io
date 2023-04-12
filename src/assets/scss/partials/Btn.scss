@@ -16,7 +16,7 @@ $btn-settings: (
   padding: map-get($btn-settings, padding);
   border-radius: map-get($btn-settings, br);
 
-  font-size: map-get($btn-settings, fs);
+  @extend %paragraf-size;
   width: fit-content;
 
   position: absolute;

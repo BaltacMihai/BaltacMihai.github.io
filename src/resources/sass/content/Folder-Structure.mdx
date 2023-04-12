@@ -1,0 +1,113 @@
+---
+title: Folder Structure
+name: folderStructure
+excerpt: This module will teach you how to organize your Sass files and provide you with a template to help you along the way.
+order: 2
+---
+
+import CodeSnippet from "./../../../resources/sass/shared/CodeSnippet.astro";
+import "./../../../resources/sass/shared/style.css";
+
+export const internalLinks = [
+  { link: "files", name: "Types of files" },
+  { link: "name", name: "File namining convention" },
+  { link: "organizeCode", name: "Ways for organizing your code" },
+  { link: "global", name: "Global stylesheet and general classes" },
+  { link: "modular", name: "Stylesheet module for every component" },
+];
+
+{/* Page Content */}
+
+<section id={internalLinks[0].link}>
+  <h2>{internalLinks[0].name}</h2>
+  <p>
+    Sass has two different file types: [file name].scss and [file name].sass.
+    Their use of "Sass language" differs from one another. Despite the fact that
+    you can use both files in the same project, the difference is in the way the
+    code is written. Both file types have the same capabilities, though.
+  </p>
+  <CodeSnippet
+    content="//SCSS Version
+    &nbsp;
+    .class{
+      &nbsp; display: flex;
+      &nbsp; align-items: center;
+       &nbsp;}
+       &nbsp;
+        .class2{
+         &nbsp; background-color: #000000;
+          &nbsp; color: #ffffff;
+        &nbsp;}"
+    lang="scss"
+  />
+  <CodeSnippet
+    content="//SASS Version
+    &nbsp;
+    .class
+        &nbsp; display: flex
+        &nbsp; align-items:center
+      &nbsp;
+.class2
+         &nbsp; background-color: #000000
+          &nbsp; color: #ffffff
+      "
+    lang="sass"
+  />
+</section>
+
+<section id={internalLinks[1].link}>
+  <h2>{internalLinks[1].name}</h2>
+
+</section>
+
+<section id={internalLinks[2].link}>
+  <h2>{internalLinks[2].name}</h2>
+  <p>
+    Depending on your preferences, you may structure your code in a variety of
+    ways.
+  </p>
+  <p>
+    You can select between the two approaches below depending on your particular
+    situation, whether you have total control over the code and structure or
+    you're utilizing a framework that is component-based and permits the use of
+    modules:
+  </p>
+</section>
+
+<section id={internalLinks[3].link}>
+  <h2>{internalLinks[3].name}</h2>
+  <p>Any situation can use this technique.</p>
+  <p>
+    This is a traditional method in which you create a global stylesheet file
+    and assign pre-made classes to the components. If you follow some patterns
+    and have well-structured code, it works great. The disadvantage of this
+    strategy is that it might produce a big file that slows down the website.
+    However, if you don't have a decent strategy, you could start overwriting
+    things and overusing the "!important" rule.
+  </p>
+</section>
+
+<section id={internalLinks[4].link}>
+  <h2>{internalLinks[4].name}</h2>
+  <p>
+    This approach can only be used with component-based frameworks. The notion
+    is the same even though the method for creating the classes may change
+    depending on the framework.
+  </p>
+  <p>
+    Every component has its own stylesheet module in the structure. This
+    strategy is best used when you wish to keep to the DRY principle (Don't
+    Repeat Yourself) and include everything in your component. The purpose
+    behind this technique is to utilize styles straight into components, similar
+    to inline styles, but only once because you only have one component. While
+    checking the class of an element (in Devtools), you will see a class with a
+    name and a random number/string, suggesting that the class is dynamic.
+  </p>
+  <p>
+    The drawbacks of this approach include the possibility of continuously
+    repeating and rewriting code if the DRY principle isn't applied correctly.
+    Also, because everything is dispersed, changing something could be more
+    difficult, especially if appropriate abstract concepts like variables,
+    extends, and mixins aren't used.
+  </p>
+</section>
