@@ -17,18 +17,13 @@ export async function getStaticPaths() {
 const { Content, frontmatter, internalLinks } = Astro.props.module;
 ---
 
-<Layout title={`${frontmatter.path}: ${frontmatter.title}`}>
+<Layout title={`${frontmatter.title} | Baltac Mihai`}>
   <div class="guide-page">
     <div class="row guide-info">
-      <!-- <img
-        src={frontmatter.icon}
-        alt={frontmatter.title + " icon"}
-        class="icon"
-        width={frontmatter.iconWidth ? frontmatter.iconWidth : 150}
-      /> -->
+      <img src="./../../sass-course.svg" alt="Course image" />
+
       <div class="col">
         <h1 class="title">{frontmatter.title}</h1>
-        <h3>{`${frontmatter.path}`}</h3>
         <p>{frontmatter.excerpt}</p>
       </div>
     </div>
@@ -112,33 +107,39 @@ const { Content, frontmatter, internalLinks } = Astro.props.module;
   );
 </script>
 
-<style>
+<style lang="scss">
+  @use "../../../assets/scss" as *;
   .aside {
     position: fixed;
-    right: 5%;
+    right: 10%;
     display: flex;
     flex-direction: column;
     top: 15%;
-  }
 
-  .aside h2 {
-    margin-bottom: 2rem;
-  }
+    h2 {
+      margin-bottom: 2rem;
+      @extend %paragraf-size;
 
-  .aside a {
-    padding-left: 1rem;
-    border-left: 3px solid #ccc;
-    padding: 0.5rem 1rem;
-    color: #999;
-  }
+      a {
+        @extend %small-size;
+      }
+    }
+    a {
+      text-decoration: none;
+      padding-left: 1rem;
+      border-left: 3px solid #ccc;
+      padding: 0.5rem 1rem;
+      color: #999;
 
-  .aside a:hover,
-  .aside a.active {
-    border-color: #5d60ef;
-    color: #5d60ef;
-    background-color: #ded7fb47;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
+      &:hover,
+      &.active {
+        border-color: #5d60ef;
+        color: #5d60ef;
+        background-color: #ded7fb47;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+      }
+    }
   }
 
   .guide-info h3 {
@@ -152,12 +153,13 @@ const { Content, frontmatter, internalLinks } = Astro.props.module;
     }
   }
   .guide-page {
-    padding: 1rem 10%;
+    padding: 3.5rem 10%;
   }
 
   .row {
     display: flex;
     align-items: center;
+    width: 70%;
   }
   img {
     margin-right: 2rem;
@@ -166,6 +168,7 @@ const { Content, frontmatter, internalLinks } = Astro.props.module;
   @media (max-width: 1025px) {
     .row {
       flex-direction: column;
+      width: 100%;
     }
   }
 
@@ -183,11 +186,18 @@ const { Content, frontmatter, internalLinks } = Astro.props.module;
   }
   .title {
     color: #5d60ef;
+    @extend %header-size;
+
+    & ~ p {
+      @extend %small-size;
+      color: $cl-grey;
+    }
   }
 
   .content {
-    width: 80%;
+    width: 70%;
     padding: 3rem 0px;
+    @extendp %subtitle-size;
   }
 
   @media (max-width: 1025px) {

@@ -13,7 +13,7 @@ const modules = rawModules?.sort(sortPage);
 <Layout title="Sass Course | Baltac Mihai">
   <main>
     <div class="course_details">
-      <img src="./sass-course.svg" alt="Sass Course Image" />
+      <!-- <img src="./sass-course.svg" alt="Sass Course Image" /> -->
 
       <h1>Sass Course</h1>
       <h2>Overview</h2>
@@ -48,6 +48,7 @@ const modules = rawModules?.sort(sortPage);
                         internalLink.link
                       }
                     >
+                      <img src="./book-icon.svg" alt="bookIcon" class="icon" />
                       {internalLink.name}
                     </a>
                   );
@@ -64,7 +65,7 @@ const modules = rawModules?.sort(sortPage);
 <style lang="scss">
   @use "../../../assets/scss" as *;
   main {
-    padding: 0 15%;
+    margin: 2.5% 10%;
   }
 
   .course_details {
@@ -77,7 +78,7 @@ const modules = rawModules?.sort(sortPage);
       margin: auto;
 
       @include mobile {
-        width: 100%;
+        width: 25px !important;
       }
     }
 
@@ -115,20 +116,19 @@ const modules = rawModules?.sort(sortPage);
       border: 1px solid #676;
       padding: 1rem;
       border-radius: 10px;
-      font-size: 1rem;
 
       .module_frontmetter {
         border-bottom: 1px solid #676;
         h3 {
           margin: 0;
-          font-size: 1.5rem;
+
+          margin-bottom: 0.5rem;
+
+          @extend %paragraf-size;
         }
         .description {
           color: $cl-grey;
-          font-size: 1rem;
-          @include tablet {
-            font-size: 1rem;
-          }
+          @extend %small-size;
         }
       }
       .module_links {
@@ -141,10 +141,18 @@ const modules = rawModules?.sort(sortPage);
           color: #5d60ef;
           padding: 1rem;
           border-radius: 10px;
-          font-size: 1.5rem;
+          @extend %paragraf-size;
+
+          display: flex;
+          align-items: center;
 
           &:hover {
             background-color: #ded7fb47;
+          }
+
+          img {
+            margin: 0;
+            margin-right: 1rem;
           }
         }
       }
