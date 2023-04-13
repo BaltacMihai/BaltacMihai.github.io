@@ -1,0 +1,35 @@
+{
+  "title": "Education",
+  "items": [
+    {
+      "date": {
+        "type": "double",
+        "startingDate": "2019",
+        "endingDate": "2022"
+      },
+      "title": "Computer Science Bachelor's Degree @The Bucharest University of Economic Studies",
+      "description": [
+        "• Studied core computer science topics such as algorithms, data structures, computer architecture, programming languages, and operating systems;",
+        "• Gained knowledge and skills in programming languages such as Java, C++, Python, and SQL;",
+        "• Developed critical thinking, problem-solving, and analytical skills through assignments, projects, and exams;",
+        "• Participated in team projects, working collaboratively with other students to design, develop, and test software applications;",
+        "• Completed coursework in topics such as artificial intelligence, machine learning, data mining, and web development;",
+        "• Attended various workshops and events organized by the university's computer science department to learn about the latest trends and technologies in the field."
+      ]
+    },
+    {
+      "date": {
+        "type": "double",
+        "startingDate": "2019",
+        "endingDate": "2022"
+      },
+      "title": "Teacher module 1 @The Bucharest University of Economic Studies",
+      "description": [
+        "• Completed training to become a certified teacher for students up to 11th grade (16-17 years old);",
+        "• Developed lesson plans and teaching materials for computer science topics such as programming basics, data structures, and algorithms;",
+        "• Delivered lectures and led discussions in the classroom, providing guidance and support to students as they learned;",
+        "• Evaluated student performance through assignments, projects, and exams, providing feedback and grades to help students improve their skills and knowledge."
+      ]
+    }
+  ]
+}

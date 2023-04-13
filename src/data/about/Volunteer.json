@@ -1,0 +1,76 @@
+{
+  "title": "Volunteer",
+  "items": [
+    {
+      "date": {
+        "type": "double",
+        "startingDate": "2020",
+        "endingDate": "2022"
+      },
+      "title": "Frontend Developer @SiSC - Sindicatul Studenților din Cibernetică",
+      "description": [
+        "• Creating and updating applications / sites of internal and external projects using HTML, CSS and JavaScript;",
+        "• Resolving bugs of internal and external applications / sites;",
+        "• Explaining the functionality and use of applications / sites for members of other departments;",
+        "• Adaptation on various frameworks, depending on the chosen project;",
+        "• Loading materials created on GitLab;",
+        "• Connecting the Front-end with the Back-end via APIs;"
+      ]
+    },
+    {
+      "date": {
+        "type": "double",
+        "startingDate": "2021",
+        "endingDate": "2022"
+      },
+      "title": "Solutions Architect @MLSA ASE",
+      "description": [
+        "• Finding the best tech solution among all possible to solve the existing business problems.",
+        "• Describing the structure, characteristics, behavior, and other aspects of software to project stakeholders.",
+        "• Defining features, phases, and solution requirements.",
+        "• Providing specifications according to which the solution is defined, managed, and delivered.",
+        "• Focused mainly on web technologies."
+      ]
+    },
+    {
+      "date": {
+        "type": "double",
+        "startingDate": "2020",
+        "endingDate": "2022"
+      },
+      "title": "Technology Member @Microsoft Learn Student Ambassadors Romania ASE",
+      "description": [
+        "• Creating and updating internal and external applications and the site using both Front-end technologies (HTML, CSS, JavaScript and Bootstrap) and Back-end technologies (Asp.net, .net, C#);",
+        "• Resolving the bugs of internal and external applications and the site;",
+        "• Explaining the functionality and use of applications / sites for members of other departments;",
+        "• Loading materials created on GitHub."
+      ]
+    },
+    {
+      "date": {
+        "type": "single",
+        "value": "2021"
+      },
+      "title": "Project Manager Dare to Speak @SiSC",
+      "description": [
+        "• Coordinates the activities within the project, directly supervising the association's teams.",
+        "• Makes proposals to improve the work style in order to maximize the efficiency of achieving the proposed objectives.",
+        "• Evaluates the impact of the project and communicates it to the management, financiers and project partners.",
+        "• Monitors in time the progress achieved towards the proposed objectives and writes reports every 2 weeks to the executive office, the management office and the department leaders."
+      ]
+    },
+    {
+      "date": {
+        "type": "single",
+        "value": "2021"
+      },
+      "title": "Computer Science Teacher @Dalia's Book",
+      "description": [
+        "• Introducing elementary school students to algorithms through education.",
+        "• Developing and evaluating a curriculum that aligns with students' learning progression.",
+        "• Evaluates the impact of the project and communicates it to the management, financiers and project partners.",
+        "• Evaluating and assisting students with their project presentations through testing."
+      ]
+    }
+  ]
+}

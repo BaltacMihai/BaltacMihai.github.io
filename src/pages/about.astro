@@ -1,6 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SectionDivider from "../components/shared/SectionDivider.astro";
+import AcordeonTable from "../components/shared/AcordeonTable.astro";
+
+// _________ Data _________
+import experience from "./../data/about/Experience.json";
+import education from "./../data/about/Education.json";
+import trainings from "./../data/about/Trainings.json";
+import volunteer from "./../data/about/Volunteer.json";
 ---
 
 <Layout title="About | Baltac Mihai">
@@ -32,15 +39,12 @@ import SectionDivider from "../components/shared/SectionDivider.astro";
         </p>
       </div>
     </section>
-    <SectionDivider text="Journey" />
+    <!-- <SectionDivider text="Journey" /> -->
     <section>
-      <div class="table">
-        <div class="title">Experience</div>
-        <div class="item">
-          <div class="date">2020 - 2022</div>
-          <div class="content">UX Engeener @ Exe</div>
-        </div>
-      </div>
+      <AcordeonTable title={experience.title} items={experience.items} />
+      <AcordeonTable title={education.title} items={education.items} />
+      <AcordeonTable title={trainings.title} items={trainings.items} />
+      <AcordeonTable title={volunteer.title} items={volunteer.items} />
     </section>
   </main>
 
@@ -111,6 +115,10 @@ import SectionDivider from "../components/shared/SectionDivider.astro";
             }
           }
         }
+      }
+
+      section {
+        width: 100%;
       }
     }
   </style>
