@@ -1,0 +1,13 @@
+{
+  "title": "Awards",
+  "items": [
+    {
+      "date": {
+        "type": "single",
+        "value": "2022"
+      },
+      "title": "3rd place in the Scientific Research Session @The Bucharest University of Economic Studies",
+      "description": "I presented a project that solves the issue of businesses utilizing many apps for various activities. My suggestion is to integrate several apps, such as HRIS, Ticketing, and Project Management, to provide a consolidated and user-friendly solution. Based on my research, I determined that these apps may be unified into a single, integrated platform."
+    }
+  ]
+}

@@ -31,7 +31,7 @@ import SectionDivider from "../components/shared/SectionDivider.astro";
           I'm not your typical Designer or Developer. I aim to challenge norm by
           providing unique and unusual solutions that exceed expectations.
         </p>
-        <div class="btn">Discover More</div>
+        <a class="btn" href="/about">Discover More</a>
       </div>
     </section>
     <SectionDivider text="Project" />
@@ -197,6 +197,7 @@ import SectionDivider from "../components/shared/SectionDivider.astro";
         }
 
         .btn {
+          text-decoration: none;
           @include mobile {
             position: relative;
             margin: 3rem auto;

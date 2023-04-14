@@ -8,6 +8,7 @@ import experience from "./../data/about/Experience.json";
 import education from "./../data/about/Education.json";
 import trainings from "./../data/about/Trainings.json";
 import volunteer from "./../data/about/Volunteer.json";
+import awards from "./../data/about/Awards.json";
 ---
 
 <Layout title="About | Baltac Mihai">
@@ -45,6 +46,7 @@ import volunteer from "./../data/about/Volunteer.json";
       <AcordeonTable title={education.title} items={education.items} />
       <AcordeonTable title={trainings.title} items={trainings.items} />
       <AcordeonTable title={volunteer.title} items={volunteer.items} />
+      <AcordeonTable title={awards.title} items={awards.items} />
     </section>
   </main>
 
@@ -64,7 +66,7 @@ import volunteer from "./../data/about/Volunteer.json";
 
       h1 {
         @extend %header-size;
-        margin-top: 7.5rem;
+        margin-top: 3.5rem;
       }
 
       .description {
