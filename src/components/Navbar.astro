@@ -4,6 +4,11 @@ import generateRandomId from "../assets/utils/generateId";
 const openMenuId = "open-menu-" + generateRandomId(5);
 const closeMenuId = "close-menu-" + generateRandomId(5);
 const linkMenuId = "link-menu-" + generateRandomId(5);
+
+const aboutId = "about-" + generateRandomId(5);
+const projectsId = "projects-" + generateRandomId(5);
+const resourcesId = "resources-" + generateRandomId(5);
+const contactId = "contact-" + generateRandomId(5);
 ---
 
 <nav class="navbar">
@@ -17,26 +22,52 @@ const linkMenuId = "link-menu-" + generateRandomId(5);
     />
   </div>
   <div class="links" id={linkMenuId}>
-    <a href="/about">About</a>
-    <a href="#">Projects</a>
-    <a href="#">Resources</a>
-    <a href="#">Contact</a>
+    <a href="/about" id={aboutId}>About</a>
+    <a href="#" id={projectsId}>Projects</a>
+    <a href="/resources" id={resourcesId}>Resources</a>
+    <a href="#" id={contactId}>Contact</a>
   </div>
 </nav>
 
-<script define:vars={{ openMenuId, closeMenuId, linkMenuId }} is:inline>
+<script
+  define:vars={{
+    openMenuId,
+    closeMenuId,
+    linkMenuId,
+    aboutId,
+    projectsId,
+    resourcesId,
+    contactId,
+  }}
+  is:inline
+>
   function getCurrentPage() {
     const url = window.location.href;
+    const aboutBtn = document.getElementById(aboutId);
+    const projectBtn = document.getElementById(projectsId);
+    const resourcesBtn = document.getElementById(resourcesId);
+    const contactBtn = document.getElementById(contactId);
+
     if (url.endsWith("/")) {
       return "home";
     } else if (url.includes("/about")) {
+      aboutBtn.classList.add("active");
+
       return "about";
+    } else if (url.includes("/resources")) {
+      resourcesBtn.classList.add("active");
+
+      return "resources";
     } else if (url.includes("/contact")) {
+      contactBtn.classList.add("active");
+
       return "contact";
     } else {
       return "unknown";
     }
   }
+
+  getCurrentPage();
 
   const toggleMenu = () => {
     const openIcon = document.getElementById(openMenuId);
@@ -118,6 +149,10 @@ const linkMenuId = "link-menu-" + generateRandomId(5);
         font-size: $subtitle-size;
         color: $cl-text;
         text-decoration: none;
+
+        &.active {
+          font-weight: bolder;
+        }
       }
     }
   }
