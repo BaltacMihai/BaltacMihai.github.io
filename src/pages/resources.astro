@@ -1,10 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Filter from "../components/Filter.vue";
+import SassCourseImage from "../assets/images/sass-course.svg";
+
 const categories = {
   contentType: ["All", "Video", "Guide", "Course"],
   subjects: ["All", "Code", "Protocols", "Training", "Dance", "Life"],
 };
+
+const content = [
+  {
+    name: "Sass Course",
+    contentType: "Course",
+    subject: "Code",
+    image: SassCourseImage,
+    description:
+      "This course incorporates all of the information learned from working with Sass for over two years. It is constantly updated to match the most latest versions, ensuring that the material is up to date.",
+    link: "/sass",
+  },
+];
 ---
 
 <Layout title="Resources | Baltac Mihai">
@@ -14,6 +28,7 @@ const categories = {
       client:load
       contentType={categories.contentType}
       subjects={categories.subjects}
+      content={content}
     />
   </main>
 </Layout>

@@ -3,7 +3,7 @@ import minimizeIcon from "./../../assets/icons/minimize.svg";
 import maximizeIcon from "./../../assets/icons/maximize.svg";
 import generateRandomId from "../../assets/utils/generateId";
 
-const { title, description, items } = Astro.props;
+const { title, description, items,isClosed } = Astro.props;
 
 
 const contentId = title + "-" + generateRandomId(3);
@@ -61,7 +61,7 @@ const maximizeId = "maximize-" + generateRandomId(3);
   </div>
 </div>
 
-<script define:vars={{ minimizeId, maximizeId, contentId }} is:inline>
+<script define:vars={{ minimizeId, maximizeId, contentId,isClosed }} is:inline>
   const minimizeBtn = document.getElementById(minimizeId);
   const maximizeBtn = document.getElementById(maximizeId);
   const content = document.getElementById(contentId);
@@ -106,6 +106,10 @@ function openInnerContent(innerContentId,innerMinimizeId, innerMaximizeId){
   maximizeBtn.addEventListener("click", () => {
     openContent(content,minimizeBtn,maximizeBtn)
   });
+
+  if(isClosed){
+    closeContent(content,minimizeBtn,maximizeBtn)
+  }
 </script>
 
 <style lang="scss">

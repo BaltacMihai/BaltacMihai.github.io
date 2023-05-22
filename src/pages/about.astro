@@ -9,6 +9,7 @@ import education from "./../data/about/Education.json";
 import trainings from "./../data/about/Trainings.json";
 import volunteer from "./../data/about/Volunteer.json";
 import awards from "./../data/about/Awards.json";
+import certificates from "./../data/about/Certificates.json";
 ---
 
 <Layout title="About | Baltac Mihai">
@@ -42,11 +43,20 @@ import awards from "./../data/about/Awards.json";
     </section>
     <!-- <SectionDivider text="Journey" /> -->
     <section>
-      <AcordeonTable title={experience.title} items={experience.items} />
-      <AcordeonTable title={education.title} items={education.items} />
-      <AcordeonTable title={trainings.title} items={trainings.items} />
-      <AcordeonTable title={volunteer.title} items={volunteer.items} />
       <AcordeonTable title={awards.title} items={awards.items} />
+      <AcordeonTable title={experience.title} items={experience.items} />
+      <AcordeonTable title={certificates.title} items={certificates.items} />
+      <AcordeonTable title={education.title} items={education.items} />
+      <AcordeonTable
+        title={trainings.title}
+        items={trainings.items}
+        isClosed="true"
+      />
+      <AcordeonTable
+        title={volunteer.title}
+        items={volunteer.items}
+        isClosed="true"
+      />
     </section>
   </main>
 
