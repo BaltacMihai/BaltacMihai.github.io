@@ -30,7 +30,7 @@ labelName={["Role", "Somethings"]} -->
       <template v-for="(card, index) in cardContent" :key="index">
         <Card
           :title="card.frontmatter.title"
-          :url="hrefAdded + '/' + card.frontmatter.url"
+          :url="'../' + hrefAdded + '/' + card.frontmatter.url"
           :imgSrc="card.frontmatter.imageSrc"
           :tags="convertCardTags(card.frontmatter)"
           v-if="isVisible(convertCardTags2Visible(card.frontmatter))"
