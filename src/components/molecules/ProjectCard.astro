@@ -1,0 +1,53 @@
+---
+import Chip from "../atoms/Chip.astro";
+const { title, url, imgSrc, tags } = Astro.props;
+---
+
+<a class="project-card" href={url}>
+  <img src={imgSrc} alt={title + "- image"} />
+  <div class="description">
+    <p class="title">{title}</p>
+    <div class="roles">
+      {
+        tags?.map((tag) => {
+          return <Chip text={tag} />;
+        })
+      }
+    </div>
+  </div>
+</a>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  .project-card {
+    text-decoration: none;
+    height: fit-content;
+
+    @include mobile {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+    }
+    .description {
+      color: $cl-black;
+
+      .title {
+        @extend %subtitle-size;
+        margin-top: 0;
+        margin-bottom: calc($lg-size / 2);
+      }
+      .roles {
+        display: flex;
+        gap: calc($lg-size / 2);
+        color: $cl-gray;
+        @include mobile {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+</style>

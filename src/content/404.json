@@ -1,0 +1,10 @@
+{
+  "code": "404",
+  "title": "Page not found",
+  "text": "I apologize for any inconvenience this may have caused. The page may have been moved or deleted, the link you followed may have been broken.  You may still view my portfolio by going to the homepage or using the navigation menu to explore my work, so don't worry. Even better, you might learn something amazing along the way!",
+
+  "cta": {
+    "text": "Back to homepage!",
+    "link": "/"
+  }
+}

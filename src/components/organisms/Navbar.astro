@@ -1,0 +1,98 @@
+---
+import content from "../../content/_partials/Navbar.json";
+import StateBtn from "../molecules/StateBtn.astro";
+---
+
+<nav>
+  <a href="/" class="logo">{content.logo}</a>
+  <StateBtn
+    firstBtnSrc={content.icons.open}
+    secondBtnSrc={content.icons.close}
+    functionTrigger="toggleMenu()"
+    className="menu"
+  />
+  <div class="links" id="links">
+    {
+      content.links?.map((link) => {
+        return <a href={link.src}>{link.name}</a>;
+      })
+    }
+  </div>
+</nav>
+
+<script is:inline>
+  function toggleMenu() {
+    const linksContent = document.getElementById("links");
+
+    linksContent.style.display == "none" || linksContent.style.display == ""
+      ? (linksContent.style.display = "flex")
+      : (linksContent.style.display = "none");
+  }
+</script>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    @extend %layout-size;
+
+    .logo {
+      @extend %text-size;
+
+      color: $cl-black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .menu {
+      display: none;
+      position: relative;
+      @include mobile {
+        display: flex;
+      }
+
+      img {
+        position: absolute;
+        right: 0;
+        top: -0.75rem;
+        width: 2rem;
+        cursor: pointer;
+        z-index: 99;
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $lg-size;
+
+      @include mobile {
+        display: none;
+        position: fixed;
+        background-color: $cl-white;
+        top: 0%;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+        z-index: 1;
+      }
+
+      a {
+        @extend %text-size;
+        color: $cl-black;
+        text-decoration: none;
+
+        &.active {
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+</style>

@@ -1,65 +1,52 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import content from "../content/thankyou.json";
+import LinkBtn from "../components/atoms/LinkBtn.astro";
 ---
 
 <Layout title="Thank you | Baltac Mihai">
   <main>
-    <h1>Thank you</h1>
-    <p>
-      Thank you for contacting me! Being a freelancer, I take great delight in
-      providing my clients with good service. Your message has been received,
-      and I will evaluate it as soon as possible.
-    </p><p>
-      I realize how precious your time is, and I appreciate you taking the time
-      to contact me. Please be assured that I will reply to your request as soon
-      as possible.
-    </p><p>
-      Meanwhile, if you have any more questions or would want to learn more
-      about my services, please explore my portfolio or visit my social media
-      sites. I am always willing to speak with prospective clients and answer
-      any questions they may have.
-    </p>
-
-    <a href="/" class="btn">Back to homepage!</a>
-  </main>
-
-  <style lang="scss">
-    @use "../assets/scss" as *;
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-
-      @include mobile {
-        margin-bottom: 10%;
-      }
-
-      h1 {
-        @extend %header-size;
-        margin-top: 7.5rem;
-      }
-
-      h2 {
-        margin-top: -1rem;
-        color: $cl-grey;
-        text-align: center;
-
-        @extend %subtitle-size;
-      }
-      p {
-        @extend %paragraf-size;
-        text-align: center;
-        width: 75%;
-        margin: 1rem 0;
-      }
-      a.btn {
-        position: relative;
-        text-decoration: none;
-        @extend %paragraf-size;
-      }
+    <h1>{content.title}</h1>
+    {
+      content.message?.map((paragraph) => {
+        return <p>{paragraph}</p>;
+      })
     }
-  </style>
+    <LinkBtn href={content.cta.src} text={content.cta.text} />
+  </main>
 </Layout>
+
+<style lang="scss">
+  @use "../styles/settings" as *;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include mobile {
+      margin-bottom: 10%;
+    }
+
+    h1 {
+      @extend %title-size;
+      margin-top: 7.5rem;
+    }
+
+    h2 {
+      margin-top: -1rem;
+      color: $cl-gray;
+      text-align: center;
+
+      @extend %subtitle-size;
+    }
+    p {
+      @extend %text-size;
+      text-align: center;
+      width: 75%;
+      margin: 1rem 0;
+    }
+  }
+</style>

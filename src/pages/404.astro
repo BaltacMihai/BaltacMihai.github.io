@@ -1,26 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import content from "../content/404.json";
+import LinkBtn from "../components/atoms/LinkBtn.astro";
+
+const textPhrases = content.text.split(".");
 ---
 
 <Layout title="Not Found | Baltac Mihai">
   <main>
-    <h1>404</h1>
-    <h2>Page not found</h2>
+    <h1>{content.code}</h1>
+    <h2>{content.title}</h2>
     <p>
-      I apologize for any inconvenience this may have caused. The page may have
-      been moved or deleted, the link you followed may have been broken.
+      {
+        textPhrases?.map((phrase) => {
+          return <span>{phrase}</span>;
+        })
+      }
     </p>
-    <p>
-      You may still view my portfolio by going to the homepage or using the
-      navigation menu to explore my work, so don't worry. Even better, you might
-      learn something amazing along the way!
-    </p>
-    <a href="/" class="btn">Back to homepage!</a>
+    <LinkBtn href={content.cta.link} text={content.cta.text} />
   </main>
 </Layout>
 
 <style lang="scss">
-  @use "../assets/scss" as *;
+  @use "../styles/settings" as *;
 
   main {
     display: flex;
@@ -34,27 +36,28 @@ import Layout from "../layouts/Layout.astro";
     }
 
     h1 {
-      @extend %header-size;
+      @extend %title-size;
       margin-top: 7.5rem;
+      margin-bottom: 0;
     }
 
     h2 {
       margin-top: -1rem;
-      color: $cl-grey;
+      color: $cl-gray;
       text-align: center;
 
       @extend %subtitle-size;
     }
     p {
-      @extend %paragraf-size;
+      @extend %text-size;
+
       text-align: center;
       width: 75%;
       margin: 1rem 0;
-    }
-    a.btn {
-      position: relative;
-      text-decoration: none;
-      @extend %paragraf-size;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
   }
 </style>

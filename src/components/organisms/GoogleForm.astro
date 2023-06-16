@@ -1,0 +1,170 @@
+---
+import InputGroup from "../molecules/InputGroup.astro";
+import LabeledInput from "../molecules/LabeledInput.astro";
+const { formAction, labelGroup } = Astro.props;
+---
+
+<script type="text/javascript">
+  var submitted = false;
+</script>
+<iframe
+  name="hidden_iframe"
+  id="hidden_iframe"
+  style="display:none;"
+  onload="if(submitted) {window.location='./thankyou';}"
+>
+</iframe>
+<form
+  action={formAction}
+  method="post"
+  target="hidden_iframe"
+  onsubmit="submitted=true;"
+>
+  {
+    labelGroup?.map((labeledInput) => {
+      return (
+        <LabeledInput
+          label={labeledInput.label}
+          type={labeledInput.inputType}
+          name={labeledInput.inputName}
+        />
+      );
+    })
+  }
+
+  <!-- <div class="input-group f-2">
+    <label>First & Last Name</label>
+    <input type="text" name="entry.409288017" />
+  </div>
+  <div class="input-group f-2">
+    <label>Company</label>
+    <input type="text" name="entry.458344659" />
+  </div>
+  <div class="input-group f-1">
+    <label>Email</label>
+    <input type="email" name="entry.1955462360" />
+  </div>
+  <div class="input-group f-1">
+    <label>Message</label>
+    <textarea name="entry.449183688" class="textarea"></textarea>
+  </div> -->
+  <button type="submit" class="btn" id="btn">Submit</button>
+</form>
+
+<script>
+  const btn = document.getElementById("btn");
+
+  const nameInput = document.getElementsByName("entry.409288017")[0];
+  const companyInput = document.getElementsByName("entry.458344659")[0];
+  const emailInput = document.getElementsByName("entry.1955462360")[0];
+  const messageInput = document.getElementsByName("entry.449183688")[0];
+
+  const nameRegex = /^[a-zA-Z\s]+$/;
+  const companyRegex = /^[a-zA-Z\s]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const messageRegex = /^.{1,1000}$/;
+  let isFormSent = false;
+
+  const invalidBorder = "1px solid red";
+  const validBorder = "1px solid #676";
+
+  function check(e) {
+    let typeRegex = null;
+
+    switch (e.target.type) {
+      case "text":
+        typeRegex = nameRegex;
+        break;
+      case "email":
+        typeRegex = emailRegex;
+        break;
+      default:
+        if (e.target.nodeName === "TEXTAREA") {
+          typeRegex = messageRegex;
+        }
+        break;
+    }
+
+    if (!typeRegex?.test(e.target.value.trim())) {
+      e.target.style.border = invalidBorder;
+    } else {
+      e.target.style.border = validBorder;
+    }
+  }
+
+  function checkForm(e) {
+    const name = nameInput.value.trim();
+    const company = companyInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (isFormSent) {
+      e.preventDefault();
+    }
+    isFormSent = true;
+
+    if (!nameRegex.test(name)) {
+      isFormSent = false;
+
+      alert("Please enter a valid name.");
+      nameInput.style.border = invalidBorder;
+      e.preventDefault();
+    }
+
+    if (!companyRegex.test(company)) {
+      isFormSent = false;
+
+      alert("Please enter a valid company name.");
+      companyInput.style.border = invalidBorder;
+      e.preventDefault();
+    }
+
+    if (!emailRegex.test(email)) {
+      isFormSent = false;
+
+      alert("Please enter a valid email address.");
+      emailInput.style.border = invalidBorder;
+      e.preventDefault();
+    }
+
+    if (!messageRegex.test(message)) {
+      isFormSent = false;
+
+      messageInput.style.border = invalidBorder;
+      alert("Please enter a message between 1 and 1000 characters.");
+      e.preventDefault();
+    }
+  }
+
+  btn.addEventListener("click", checkForm);
+  nameInput.addEventListener("change", check);
+  companyInput.addEventListener("change", check);
+  emailInput.addEventListener("change", check);
+  messageInput.addEventListener("change", check);
+</script>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    :global(.btn) {
+      background-color: $cl-black;
+      color: $cl-white;
+
+      padding: 1rem 2rem;
+      border-radius: $border-radius;
+
+      width: fit-content;
+      text-decoration: none;
+
+      margin-left: auto;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+</style>

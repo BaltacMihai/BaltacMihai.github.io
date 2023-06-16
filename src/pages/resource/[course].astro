@@ -1,0 +1,111 @@
+---
+import ArticleHeader from "../../components/organisms/ArticleHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+  const rawModules = await Astro.glob("../../content/resources/course/*.mdx");
+  const articleModules = rawModules.filter((resourceInfo) =>
+    resourceInfo.frontmatter.contentType.includes("Course")
+  );
+
+  return articleModules.map((resourceInfo) => ({
+    params: {
+      course: resourceInfo.frontmatter.url,
+    },
+    props: {
+      resourceInfo,
+    },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.resourceInfo;
+
+const compiledTags = [...frontmatter.contentType, ...frontmatter.subject];
+---
+
+<Layout title={`${frontmatter.title} | Baltac Mihai`}>
+  <div class="project">
+    <ArticleHeader
+      tags={compiledTags}
+      title={frontmatter.title}
+      description={frontmatter.description}
+      imageSrc={frontmatter.imageSrc}
+    />
+
+    <div class="content">
+      <Content />
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  .project {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<style lang="scss" is:global>
+  @use "../../styles/settings" as *;
+  .content {
+    margin-top: 3.5rem;
+
+    .overview {
+      display: flex;
+      justify-content: space-between;
+
+      @include tablet {
+        flex-direction: column;
+      }
+      .description {
+        flex: 0 0 55%;
+      }
+      .process {
+        flex: 0 0 40%;
+      }
+      .description,
+      .process {
+        h2 {
+          @extend %subtitle-size;
+        }
+
+        p,
+        li {
+          margin-top: 1rem;
+          @extend %text-size;
+          color: $cl-gray;
+        }
+
+        li {
+          margin-left: 25px;
+          width: calc(100% - 25px);
+        }
+      }
+    }
+    section {
+      margin-top: 3.5rem;
+
+      h2 {
+        @extend %subtitle-size;
+        font-weight: bold;
+      }
+      h3 {
+        @extend %text-size;
+      }
+      p {
+        margin-top: 1rem;
+        @extend %text-size;
+        color: $cl-gray;
+
+        &.small {
+          @extend %small-size;
+        }
+      }
+      img {
+        width: 100%;
+        margin: 1rem 0;
+      }
+    }
+  }
+</style>

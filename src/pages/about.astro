@@ -1,47 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SectionDivider from "../components/shared/SectionDivider.astro";
-import AcordeonTable from "../components/shared/AcordeonTable.astro";
+import content from "../content/about.json";
+import AcordeonTable from "../components/molecules/AcordeonTable.astro";
 
 // _________ Data _________
-import experience from "./../data/about/Experience.json";
-import education from "./../data/about/Education.json";
-import trainings from "./../data/about/Trainings.json";
-import volunteer from "./../data/about/Volunteer.json";
-import awards from "./../data/about/Awards.json";
-import certificates from "./../data/about/Certificates.json";
+const experience = content.experience;
+const education = content.education;
+const trainings = content.trainings;
+const volunteer = content.volunteer;
+const awards = content.awards;
+const certificates = content.certificates;
 ---
 
 <Layout title="About | Baltac Mihai">
   <main>
-    <h1>About me</h1>
+    <h1>{content.title}</h1>
     <section class="description">
       <div class="name">
-        <h3>Bâltac Mihai</h3>
-        <h4>/Bewl-tac Me-hi/</h4>
+        <h3>{content.fullName}</h3>
+        <h4>{content.pronunciation}</h4>
       </div>
-      <button class="btn">Resume</button>
+      <button class="btn">{content.resumeBtn.text}</button>
       <div class="text">
-        <p>
-          As a developer and designer, I like creating unique and effective
-          designs for businesses that help them stand out from the crowd. I have
-          a strong interest in storytelling and the ability of websites to
-          transform a boring idea into an exciting one. I'm interested in
-          developing user-friendly interfaces that are straightforward and easy
-          to use.
-        </p><p>
-          Sharing my knowledge and experience with others makes me very happy. I
-          appreciate educating others about technology and how to apply it in
-          website design.
-        </p>
-        <p>
-          Apart from my work activities, I have a significant interest in Afro
-          and Latin dance. This creative activity keeps me stimulated and
-          motivated, and it gives my job as a designer a new perspective.
-        </p>
+        {
+          content.description?.map((paragraph) => {
+            return <p>{paragraph}</p>;
+          })
+        }
       </div>
     </section>
-    <!-- <SectionDivider text="Journey" /> -->
     <section>
       <AcordeonTable title={awards.title} items={awards.items} />
       <AcordeonTable title={experience.title} items={experience.items} />
@@ -61,7 +48,7 @@ import certificates from "./../data/about/Certificates.json";
   </main>
 
   <style lang="scss">
-    @use "../assets/scss" as *;
+    @use "../styles/settings" as *;
 
     main {
       display: flex;
@@ -75,7 +62,7 @@ import certificates from "./../data/about/Certificates.json";
       }
 
       h1 {
-        @extend %header-size;
+        @extend %title-size;
         margin-top: 3.5rem;
       }
 
@@ -92,21 +79,31 @@ import certificates from "./../data/about/Certificates.json";
           @include mobile {
             flex: 0 0 100%;
           }
-          h3 {
-            @extend %header-size;
-          }
+          h3,
           h4 {
-            @extend %subtitle-size;
-            color: #ccc;
+            margin: 0;
+
             @include mobile {
               text-align: center;
             }
+          }
+
+          h3 {
+            @extend %title-size;
+          }
+          h4 {
+            @extend %subtitle-size;
+            color: $cl-gray;
           }
         }
 
         .btn {
           position: relative;
-          @extend %paragraf-size;
+          @extend %text-size;
+          background-color: $cl-black;
+          color: $cl-white;
+          padding: 1rem 2rem;
+          border-radius: 10px;
 
           @include mobile {
             flex: 0 0 100%;
@@ -120,7 +117,7 @@ import certificates from "./../data/about/Certificates.json";
           p {
             margin: 2rem 0;
             margin-bottom: 3rem;
-            @extend %paragraf-size;
+            @extend %text-size;
             @include mobile {
               text-align: center;
               margin-right: 0;

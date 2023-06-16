@@ -1,0 +1,133 @@
+---
+import ArticleHeader from "../../components/organisms/ArticleHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+  const rawModules = await Astro.glob("../../content/projects/*.mdx");
+
+  return rawModules.map((projectInfo) => ({
+    params: {
+      project: projectInfo.frontmatter.url,
+    },
+    props: {
+      projectInfo,
+    },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.projectInfo;
+const compiledTags = [...frontmatter.tags];
+---
+
+<Layout title={`Project - ${frontmatter.title} | Baltac Mihai`}>
+  <div class="project">
+    <ArticleHeader
+      tags={compiledTags}
+      title={frontmatter.title}
+      description={frontmatter.description}
+      imageSrc={frontmatter.imageSrc}
+    />
+    <div class="content">
+      <Content />
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  .project {
+    display: flex;
+    flex-direction: column;
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 3.5rem;
+
+      .title {
+        @extend %title-size;
+      }
+      .tags {
+        margin: calc($lg-size / 2) 0;
+        display: flex;
+        gap: calc($lg-size / 3);
+        color: $cl-gray;
+        @include mobile {
+          flex-wrap: wrap;
+        }
+        .tag {
+          @extend %small-size;
+
+          border: 1px solid $cl-gray;
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+          margin: 0;
+        }
+      }
+
+      img {
+        width: 80%;
+      }
+    }
+  }
+</style>
+
+<style lang="scss" is:global>
+  @use "../../styles/settings" as *;
+  .content {
+    margin-top: 3.5rem;
+
+    .overview {
+      display: flex;
+      justify-content: space-between;
+
+      @include tablet {
+        flex-direction: column;
+      }
+      .description {
+        flex: 0 0 55%;
+      }
+      .process {
+        flex: 0 0 40%;
+      }
+      .description,
+      .process {
+        h2 {
+          @extend %subtitle-size;
+        }
+        p,
+        li {
+          margin-top: 1rem;
+          @extend %text-size;
+          color: $cl-gray;
+        }
+
+        li {
+          margin-left: 25px;
+          width: calc(100% - 25px);
+        }
+      }
+    }
+    section {
+      margin-top: 3.5rem;
+
+      h2 {
+        @extend %subtitle-size;
+      }
+      p {
+        margin-top: 1rem;
+        @extend %text-size;
+        color: $cl-gray;
+
+        &.small {
+          @extend %small-size;
+        }
+      }
+      img {
+        width: 100%;
+        margin: 1rem 0;
+      }
+    }
+  }
+</style>

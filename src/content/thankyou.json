@@ -1,0 +1,12 @@
+{
+  "title": "Thank you",
+  "message": [
+    "Thank you for contacting me! Being a freelancer, I take great delight in providing my clients with good service. Your message has been received, and I will evaluate it as soon as possible.",
+    "I realize how precious your time is, and I appreciate you taking the time to contact me. Please be assured that I will reply to your request as soon as possible.",
+    "Meanwhile, if you have any more questions or would want to learn more about my services, please explore my portfolio or visit my social media sites. I am always willing to speak with prospective clients and answer any questions they may have. "
+  ],
+  "cta": {
+    "src": "/",
+    "text": "Back to homepage!"
+  }
+}

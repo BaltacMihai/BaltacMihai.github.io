@@ -1,0 +1,5 @@
+// This is the settings file, there is nothing to render, only utilitary items
+
+@forward "variables";
+@forward "responsive";
+@forward "predefined" hide $lg-size, $md-size, $sm-size;

@@ -1,0 +1,112 @@
+---
+import ArticleHeader from "../../components/organisms/ArticleHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+  const rawModules = await Astro.glob("../../content/resources/podcast/*.mdx");
+  const videoModules = rawModules.filter((resourceInfo) =>
+    resourceInfo.frontmatter.contentType.includes("Video")
+  );
+
+  return videoModules.map((resourceInfo) => ({
+    params: {
+      video: resourceInfo.frontmatter.url,
+    },
+    props: {
+      resourceInfo,
+    },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.resourceInfo;
+const compiledTags = [...frontmatter.contentType, ...frontmatter.subject];
+---
+
+<Layout title={`${frontmatter.title} | Baltac Mihai`}>
+  <div class="project">
+    <ArticleHeader
+      tags={compiledTags}
+      title={frontmatter.title}
+      description={frontmatter.description}
+    />
+    <div class="content">
+      <Content />
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  .project {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<style lang="scss" is:global>
+  @use "../../styles/settings" as *;
+  .content {
+    .overview {
+      display: flex;
+      justify-content: space-between;
+
+      @include tablet {
+        flex-direction: column;
+      }
+      .description {
+        flex: 0 0 55%;
+      }
+      .process {
+        flex: 0 0 40%;
+      }
+      .description,
+      .process {
+        h2 {
+          @extend %subtitle-size;
+        }
+        p,
+        li {
+          margin-top: 1rem;
+          @extend %text-size;
+          color: $cl-gray;
+        }
+
+        li {
+          margin-left: 25px;
+          width: calc(100% - 25px);
+        }
+      }
+    }
+    section {
+      margin: 3.5rem 0;
+
+      h2 {
+        @extend %subtitle-size;
+      }
+      p {
+        margin-top: 1rem;
+        @extend %text-size;
+        color: $cl-gray;
+
+        &.small {
+          @extend %small-size;
+        }
+      }
+    }
+    .video {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* Assuming a 16:9 aspect ratio, adjust as needed */
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: calc($border-radius * 2);
+      }
+    }
+  }
+</style>

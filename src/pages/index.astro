@@ -1,139 +1,130 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Form from "../components/Form.astro";
-import SectionDivider from "../components/shared/SectionDivider.astro";
+import LinkBtn from "../components/atoms/LinkBtn.astro";
+
+// Impoort Content
+import content from "../content/home.json";
+import ProjectCard from "../components/molecules/ProjectCard.astro";
+import GoogleForm from "../components/organisms/GoogleForm.astro";
+const rawFirstProject = await Astro.glob("../content/projects/ComponentUi.mdx");
+const rawSecondProject = await Astro.glob("../content/projects/Alfastar.mdx");
+
+const projects = [
+  rawFirstProject[0].frontmatter,
+  rawSecondProject[0].frontmatter,
+];
+
+const heroTitleWords = content.heroSection.title.split(" ");
 ---
 
 <Layout title="Baltac Mihai">
-  <main>
-    <section class="hero">
-      <h1>
-        <div class="word">Bâltac</div>
-        <div class="word">Mihai</div>
-      </h1>
-      <p class="description">
-        A developer and designer who specializes in creating elegant,
-        user-friendly websites for businesses
+  <section class="hero">
+    <h1>
+      {
+        heroTitleWords?.map((word) => {
+          return <span>{word}</span>;
+        })
+      }
+    </h1>
+    <p class="description">
+      {content.heroSection.subtitle}
+    </p>
+  </section>
 
-        <!-- looking to remain ahead of the
-        competition. With an emphasis on modern, up-to-date design that is
-        simple and easy to browse, you can provide your consumers with a smooth
-        experience. -->
-      </p>
-    </section>
-    <SectionDivider text="About" />
-    <section class="about">
-      <img src="/PersonalPhoto.png" alt="" />
-      <div class="description">
-        <h3>Bâltac Mihai</h3>
-        <h4>/Bewl-tac Me-hi/</h4>
-        <p>
-          I'm not your typical Designer or Developer. I aim to challenge norm by
-          providing unique and unusual solutions that exceed expectations.
-        </p>
-        <a class="btn" href="/about">Discover More</a>
-      </div>
-    </section>
-    <SectionDivider text="Project" />
-    <section class="projects">
-      <a class="img-section" href="#">
-        <img src="/ComponentUI.svg" alt="" />
-        <div class="description">
-          <p class="title">Component UI</p>
-          <div class="roles">
-            <p class="role">Product Owner</p>
-            <p class="role">UI & Ux Designer</p>
-            <p class="role">Frontend</p>
-          </div>
-        </div>
-      </a>
-      <a class="img-section" href="#">
-        <img src="/AlfaStar.svg" alt="" />
-        <div class="description">
-          <p class="title">Alfastar</p>
-          <div class="roles">
-            <p class="role">UI & Ux Designer</p>
-            <p class="role">Frontend</p>
-          </div>
-        </div>
-      </a>
-    </section>
-    <SectionDivider text="Contact" />
-    <section class="contact">
-      <Form />
-    </section>
-  </main>
+  <section class="about">
+    <img src={content.aboutSection.photoUrl} alt="" />
+    <div class="description">
+      <h3>{content.aboutSection.fullName}</h3>
+      <h4>{content.aboutSection.pronunciation}</h4>
+      <p>{content.aboutSection.brefDescription}</p>
+      <LinkBtn
+        href={content.aboutSection.cta.src}
+        text={content.aboutSection.cta.text}
+      />
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="header">
+      <h2 class="title">{content.projectsSetctions.title}</h2>
+      <LinkBtn
+        href={content.projectsSetctions.cta.src}
+        text={content.projectsSetctions.cta.text}
+      />
+    </div>
+    <div class="container">
+      {
+        projects?.map((project) => {
+          return (
+            <ProjectCard
+              title={project.title}
+              url={"/project/" + project.url}
+              imgSrc={project.imageSrc}
+              tags={project.tags}
+            />
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 class="title">{content.contactSection.title}</h2>
+    <GoogleForm
+      formAction={content.contactSection.formAction}
+      labelGroup={content.contactSection.labelGroup}
+    />
+  </section>
 </Layout>
 
 <style lang="scss">
-  @use "../assets/scss" as *;
+  @use "../styles/settings" as *;
 
   section {
     min-height: 100vh;
-
     @include mobile {
       height: fit-content !important;
     }
+
     &.hero {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 85vh;
-      min-height: 85vh;
+
+      $height: 85vh;
+      height: $height;
+      min-height: $height;
+
       padding: $lg-size 0;
 
       @include mobile {
         min-height: 80vh;
       }
-
       h1 {
-        @extend %page-header-size;
+        @extend %hero-size;
+        letter-spacing: 10px;
+        margin: 2rem 0;
+
+        display: flex;
+        flex-direction: column;
+
+        span:last-child {
+          margin-left: 25%;
+        }
 
         @include tablet {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        @keyframes font-animation {
-          0% {
-            font-variation-settings: "wght" 400, "wdth" 100;
-          }
+          text-align: center;
 
-          25% {
-            font-variation-settings: "wght" 800, "wdth" 100;
-          }
-
-          50% {
-            font-variation-settings: "wght" 600, "wdth" 75;
-          }
-
-          75% {
-            font-variation-settings: "wght" 400, "wdth" 75;
-          }
-
-          100% {
-            font-variation-settings: "wght" 400, "wdth" 100;
-          }
-        }
-        .word {
-          letter-spacing: 20px;
-          animation: font-animation 2s ease-in-out infinite;
-
-          &:nth-child(2) {
-            margin-left: calc($lg-size * 7);
-
-            @include tablet {
-              margin-left: 0;
-            }
+          span:last-child {
+            margin-left: 0%;
           }
         }
       }
       .description {
-        @extend %paragraf-size;
-        text-align: right;
+        @extend %text-size;
         width: 50%;
+        text-align: right;
         align-self: flex-end;
-        margin-top: 2rem;
 
         @include tablet {
           text-align: center;
@@ -141,121 +132,119 @@ import SectionDivider from "../components/shared/SectionDivider.astro";
         }
       }
     }
+
     &.about {
       display: flex;
       justify-content: space-between;
       height: auto;
       min-height: auto;
-      flex-wrap: wrap;
       margin: $lg-size 0;
       $img-size: 400px;
-      padding-bottom: 10rem;
+      gap: 5%;
+
+      @include tablet {
+        flex-direction: column;
+      }
       img {
-        flex: 0 0 30%;
         max-width: $img-size;
         max-height: $img-size;
+
+        border-radius: $border-radius;
         object-fit: cover;
         width: 100%;
         height: 100%;
 
-        @include mobile {
+        @include tablet {
           flex: 0 0 100%;
+          margin: 0 auto;
         }
       }
 
       .description {
-        flex: 0 0 65%;
         display: flex;
         flex-direction: column;
         position: relative;
         height: $img-size;
 
-        @include mobile {
-          flex: 0 0 100%;
+        @include tablet {
+          flex: 0 0 65%;
         }
         h3 {
-          @extend %header-size;
-          @include mobile {
+          @extend %title-size;
+
+          margin: 0;
+          @include tablet {
             text-align: center;
           }
         }
         h4 {
           @extend %subtitle-size;
+
+          margin: 0;
           color: #ccc;
-          @include mobile {
+          @include tablet {
             text-align: center;
           }
         }
         p {
-          @extend %paragraf-size;
+          @extend %text-size;
+
           margin-right: 2rem;
           margin-top: 2rem;
-          @include mobile {
+          @include tablet {
             text-align: center;
             margin-right: 0;
           }
         }
 
-        .btn {
-          text-decoration: none;
-          @include mobile {
-            position: relative;
-            margin: 3rem auto;
+        :global(.btn) {
+          margin-left: auto;
+          @include tablet {
+            margin: 0 auto;
           }
         }
       }
     }
-    &.projects {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin: $lg-size 0;
 
-      .img-section {
-        flex: 0 0 45%;
-        text-decoration: none;
-        height: fit-content;
+    &.projects {
+      height: auto;
+      min-height: auto;
+      padding-bottom: 5vh;
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
 
         @include mobile {
-          flex: 0 0 100%;
-          width: 100%;
+          flex-direction: column;
         }
-        img {
-          width: 100%;
+        .title {
+          @extend %title-size;
         }
-        .description {
-          color: $cl-text;
+      }
 
-          p {
-          }
-          .title {
-            @extend %subtitle-size;
-            margin-bottom: calc($lg-size / 2);
-          }
-          .roles {
-            display: flex;
-            gap: calc($lg-size / 2);
-            color: #676;
-            @include mobile {
-              flex-wrap: wrap;
-            }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
 
-            .role {
-              border: 1px solid #676;
-              padding: 1rem;
-              border-radius: 10px;
-              @extend %small-size;
-
-              @include mobile {
-                width: fit-content;
-              }
-            }
+        :global(.project-card) {
+          flex: 0 0 45%;
+          @include mobile {
+            flex: 0 0 100%;
+            width: 100%;
+            padding: 1rem 0;
           }
         }
       }
     }
     &.contact {
-      margin: $lg-size 0;
+      .title {
+        @extend %title-size;
+        margin-bottom: 2rem;
+      }
     }
   }
 </style>

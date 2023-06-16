@@ -3,37 +3,29 @@ import Layout from "../layouts/Layout.astro";
 import getUniqueItems from "./../utils/getUniqueItems";
 import FilterCard from "./../components/organisms/FilterCard.vue";
 
-import content from "./../content/resources.json";
+import content from "./../content/projects.json";
 
-const resources = await Astro.glob("../content/resources/*/*.mdx");
+const projects = await Astro.glob("../content/projects/*.mdx");
 
-const contentType = getUniqueItems(
-  resources?.map((project) => {
-    return project.frontmatter.contentType;
+const filters = getUniqueItems(
+  projects?.map((project) => {
+    return project.frontmatter.tags;
   })
 )
   .concat("All")
   .reverse();
 
-const subject = getUniqueItems(
-  resources?.map((project) => {
-    return project.frontmatter.subject;
-  })
-)
-  .concat("All")
-  .reverse();
-
-// console.log(resources);
+// console.log(filters);
 ---
 
 <Layout title="Resources | Baltac Mihai">
   <main>
     <h1>{content.title}</h1>
     <FilterCard
-      cardContent={resources}
-      filter={[subject, contentType]}
+      cardContent={projects}
+      filter={[filters]}
       labelName={content.filter}
-      hrefAdded="resource"
+      hrefAdded="project"
       client:load
     />
   </main>

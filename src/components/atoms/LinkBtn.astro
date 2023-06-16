@@ -1,0 +1,24 @@
+---
+const { text, href, type } = Astro.props;
+---
+
+<a href={href} class="btn">{text}</a>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  .btn {
+    background-color: $cl-black;
+    color: $cl-white;
+
+    padding: 1rem 2rem;
+    border-radius: $border-radius;
+
+    width: fit-content;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+</style>

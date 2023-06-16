@@ -1,0 +1,313 @@
+{
+  "title": "About me",
+  "fullName": "Bâltac Mihai",
+  "pronunciation": "/Buhl-tac Me-hi/",
+  "resumeBtn": {
+    "text": "Resume",
+    "src": "/"
+  },
+  "description": [
+    "As a developer and designer, I like creating unique and effective designs for businesses that help them stand out from the crowd. I have a strong interest in storytelling and the ability of websites to transform a boring idea into an exciting one. I'm interested in developing user-friendly interfaces that are straightforward and easy to use.",
+    "Sharing my knowledge and experience with others makes me very happy. I appreciate educating others about technology and how to apply it in website design.",
+    "Apart from my work activities, I have a significant interest in Afro and Latin dance. This creative activity keeps me stimulated and motivated, and it gives my job as a designer a new perspective."
+  ],
+  "awards": {
+    "title": "Awards",
+    "items": [
+      {
+        "date": {
+          "type": "single",
+          "value": "2022"
+        },
+        "title": "3rd place in the Scientific Research Session @The Bucharest University of Economic Studies",
+        "description": [
+          " • Investigated and examined the issues that organizations encounter when utilizing numerous applications for various tasks such as HRIS, Ticketing, and Project Management.",
+          "• Provided a user-friendly solution by proposing an integrated platform to consolidate and simplify the use of various apps.",
+          "• Created a web application for the integrated platform.",
+          "• Created cross-browser and cross-platform solutions to ensure widespread accessibility and usability."
+        ]
+      }
+    ]
+  },
+  "certificates": {
+    "title": "Certificates",
+    "items": [
+      {
+        "date": {
+          "type": "single",
+          "value": "2022"
+        },
+        "title": "Enterprise Design Thinking Co-Creator @IBM",
+        "description": [
+          "• Lead design thinking workshops and sessions, encouraging team members to think creatively and solve problems from a user-centric standpoint.",
+          "• Collaborate closely with stakeholders to discover business issues and opportunities, which are then translated into design thinking initiatives and projects.",
+          "• Work with cross-functional teams to collect insights, perform user research, and evaluate data to help inform the design process.",
+          "• Contribute to the creation of personas, journey maps, and other design thinking artifacts in order to obtain a better knowledge of the needs and pain points of users."
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "date": {
+          "type": "double",
+          "startingDate": "2019",
+          "endingDate": "2022"
+        },
+        "title": "Computer Science Bachelor's Degree @The Bucharest University of Economic Studies",
+        "description": [
+          "• Studied core computer science topics such as algorithms, data structures, computer architecture, programming languages, and operating systems;",
+          "• Gained knowledge and skills in programming languages such as Java, C++, Python, and SQL;",
+          "• Developed critical thinking, problem-solving, and analytical skills through assignments, projects, and exams;",
+          "• Participated in team projects, working collaboratively with other students to design, develop, and test software applications;",
+          "• Completed coursework in topics such as artificial intelligence, machine learning, data mining, and web development;",
+          "• Attended various workshops and events organized by the university's computer science department to learn about the latest trends and technologies in the field."
+        ]
+      },
+      {
+        "date": {
+          "type": "double",
+          "startingDate": "2019",
+          "endingDate": "2022"
+        },
+        "title": "Teacher module 1 @The Bucharest University of Economic Studies",
+        "description": [
+          "• Completed training to become a certified teacher for students up to 11th grade (16-17 years old);",
+          "• Developed lesson plans and teaching materials for computer science topics such as programming basics, data structures, and algorithms;",
+          "• Delivered lectures and led discussions in the classroom, providing guidance and support to students as they learned;",
+          "• Evaluated student performance through assignments, projects, and exams, providing feedback and grades to help students improve their skills and knowledge."
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "date": {
+          "type": "double",
+          "startingDate": "2021",
+          "endingDate": "Now"
+        },
+        "title": "Ux Engineer @Exe Software",
+        "description": [
+          "• Design and build mobile-friendly web applications;",
+          "• Executing   all visual design stages from concept to final hand-off to engineering; ",
+          "• Creating wireframes, mock-ups and design ideas;  ",
+          "• Collaborate with the content and development teams, from briefs to implementation;",
+          "• Work with HTML5, CSS3, SCSS, Visual Studio, Bootstrap, .NET, Adobe CC, JavaScript, React, Vue;",
+          "• Build innovative web designs and user interfaces;",
+          "• Develop cross-browser and cross-platform compatible solutions"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2021"
+        },
+        "title": "Javascript Developer @Capgemini",
+        "description": [
+          "• Define evolutive data models - creating the app's database",
+          "• Define business workflows - passing and transforming data between various stages of the business process",
+          "• Define validation and security access rules",
+          "• Map out the user journeys - building out the apps’s Web digital journey and its custom logic",
+          "• Insert and configure a variety of interface components, putting them together in HTML and styling them with CSS (Bootstrap)",
+          "• Integrate data automation processors (OCR, face recognition, video conferencing, digital signatures, etc.) for more complex steps in the user journeys",
+          "• Configure and interact with decision engines (scoring & personalization)",
+          "• Use JavaScript for advanced mathematical, logical and data manipulation tasks"
+        ]
+      }
+    ]
+  },
+  "trainings": {
+    "title": "Trainings, Workshops",
+    "items": [
+      {
+        "date": {
+          "type": "single",
+          "value": "2023"
+        },
+        "title": "Gannt diagram & Project Budgeting Training @SiSC",
+        "description": [
+          "• Led a training session on time management best practices, including budgeting and scheduling",
+          "• Used real-world examples and case studies to illustrate key concepts",
+          "• Provided personalized feedback on participants' project plans"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2023"
+        },
+        "title": "React Training @SiSC",
+        "description": [
+          "• Presented advanced concepts in React JavaScript library",
+          "• Discussed the latest trends and techniques for building complex React applications",
+          "• Covered the basics of Redux and other state management libraries"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2023"
+        },
+        "title": "UI/UX Training @SiSC",
+        "description": [
+          "• Presented advanced concepts in user interface (UI) and user experience (UX) design",
+          "• Discussed the latest trends and techniques for creating engaging and effective UI/UX designs",
+          "• Provided insights into the latest tools and technologies for UI/UX design"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2022"
+        },
+        "title": "Career Path Workshop @MLSA",
+        "description": [
+          "• Presented the topic of career paths in the tech industry",
+          "• Discussed various options for career advancement and how to achieve them",
+          "• Provided insights into the latest trends and technologies in the industry"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2022"
+        },
+        "title": "HTML Training @MLSA",
+        "description": [
+          "• Presented the fundamentals of HTML",
+          "• Covered the basics of semantic markup and document structure",
+          "• Discussed the latest best practices for HTML development"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2022"
+        },
+        "title": "SEO Training @MLSA",
+        "description": [
+          "• Presented the fundamentals of Search Engine Optimization (SEO)",
+          "• Discussed the latest best practices and techniques for improving search engine rankings",
+          "• Provided insights into the latest trends in the industry and how to stay ahead of the competition"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2022"
+        },
+        "title": "UI / UX Introduction Training @MLSA",
+        "description": [
+          "• Presented the fundamentals of user interface (UI) and user experience (UX) design",
+          "• Covered the basics of wireframing and prototyping",
+          "• Discussed the latest best practices and techniques for creating effective UI/UX designs"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2021"
+        },
+        "title": "React Refresher Training @SiSC",
+        "description": [
+          "• Presented an overview of the React JavaScript library",
+          "• Discussed the latest best practices and techniques for React development",
+          "• Covered the basics of building reusable components and managing state in React applications"
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2021"
+        },
+        "title": "UI/UX + HTML/CSS Training @SiSC",
+        "description": [
+          "• Presented the fundamentals of user interface (UI) and user experience (UX) design",
+          "• Covered the basics of HTML and CSS development",
+          "• Discussed the latest best practices and techniques for creating effective UI/UX designs"
+        ]
+      }
+    ]
+  },
+  "volunteer": {
+    "title": "Volunteer",
+    "items": [
+      {
+        "date": {
+          "type": "double",
+          "startingDate": "2020",
+          "endingDate": "2022"
+        },
+        "title": "Frontend Developer @SiSC - Sindicatul Studenților din Cibernetică",
+        "description": [
+          "• Creating and updating applications / sites of internal and external projects using HTML, CSS and JavaScript;",
+          "• Resolving bugs of internal and external applications / sites;",
+          "• Explaining the functionality and use of applications / sites for members of other departments;",
+          "• Adaptation on various frameworks, depending on the chosen project;",
+          "• Loading materials created on GitLab;",
+          "• Connecting the Front-end with the Back-end via APIs;"
+        ]
+      },
+      {
+        "date": {
+          "type": "double",
+          "startingDate": "2021",
+          "endingDate": "2022"
+        },
+        "title": "Solutions Architect @MLSA ASE",
+        "description": [
+          "• Finding the best tech solution among all possible to solve the existing business problems.",
+          "• Describing the structure, characteristics, behavior, and other aspects of software to project stakeholders.",
+          "• Defining features, phases, and solution requirements.",
+          "• Providing specifications according to which the solution is defined, managed, and delivered.",
+          "• Focused mainly on web technologies."
+        ]
+      },
+      {
+        "date": {
+          "type": "double",
+          "startingDate": "2020",
+          "endingDate": "2022"
+        },
+        "title": "Technology Member @Microsoft Learn Student Ambassadors Romania ASE",
+        "description": [
+          "• Creating and updating internal and external applications and the site using both Front-end technologies (HTML, CSS, JavaScript and Bootstrap) and Back-end technologies (Asp.net, .net, C#);",
+          "• Resolving the bugs of internal and external applications and the site;",
+          "• Explaining the functionality and use of applications / sites for members of other departments;",
+          "• Loading materials created on GitHub."
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2021"
+        },
+        "title": "Project Manager Dare to Speak @SiSC",
+        "description": [
+          "• Coordinates the activities within the project, directly supervising the association's teams.",
+          "• Makes proposals to improve the work style in order to maximize the efficiency of achieving the proposed objectives.",
+          "• Evaluates the impact of the project and communicates it to the management, financiers and project partners.",
+          "• Monitors in time the progress achieved towards the proposed objectives and writes reports every 2 weeks to the executive office, the management office and the department leaders."
+        ]
+      },
+      {
+        "date": {
+          "type": "single",
+          "value": "2021"
+        },
+        "title": "Computer Science Teacher @Dalia's Book",
+        "description": [
+          "• Introducing elementary school students to algorithms through education.",
+          "• Developing and evaluating a curriculum that aligns with students' learning progression.",
+          "• Evaluates the impact of the project and communicates it to the management, financiers and project partners.",
+          "• Evaluating and assisting students with their project presentations through testing."
+        ]
+      }
+    ]
+  }
+}

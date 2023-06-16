@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+//#region ---------- Colors  ---------- //
+
+$cl-white: #f8f8f8;
+$cl-black: #1f1f1f;
+$cl-gray: #667766;
+
+//#endregion
+
+//#region ---------- Font Family ---------- //
+
+$font-family: "Open Sans", sans-serif;
+
+//#endregion
+
+//#region ---------- Font Size  ---------- //
+
+$fs-hero: 12.5rem;
+$fs-title: 3.5rem;
+$fs-text: 1.5rem;
+$fs-subtext: 0.8rem;
+
+//#endregion
+
+//#region ---------- Border  ----------//
+$border-radius: 10px;
+//#endregion
+
+//#region ----- Layout -------- //
+$lg-size: 50px;
+$md-size: 25px;
+$sm-size: 0px;
+//#endregion

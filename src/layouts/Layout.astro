@@ -1,6 +1,5 @@
 ---
-import Navbar from "../components/Navbar.astro";
-
+import Navbar from "../components/organisms/Navbar.astro";
 export interface Props {
   title: string;
 }
@@ -19,9 +18,27 @@ const { title } = Astro.props;
   </head>
   <body>
     <Navbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
-<style is:global lang="scss">
-  @use "../assets/scss/general" as *;
+
+<style lang="scss">
+  @use "../styles/settings" as *;
+
+  :global(*) {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background-color: $cl-white;
+    font-family: $font-family;
+    scroll-behavior: smooth;
+  }
+
+  main {
+    @extend %layout-size;
+  }
 </style>

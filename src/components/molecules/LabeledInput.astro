@@ -1,0 +1,44 @@
+---
+const { label, type, name } = Astro.props;
+---
+
+<div class="labeled-input">
+  <label>{label}</label>
+  {
+    () => {
+      if (type == "textarea") {
+        return <textarea name={name} class="textarea" />;
+      } else {
+        return <input type={type} name={name} />;
+      }
+    }
+  }
+</div>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+  .labeled-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    label {
+      @extend %text-size;
+    }
+    input,
+    textarea {
+      @extend %text-size;
+      width: calc(100% - 1rem);
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid $cl-gray;
+      font-family: $font-family;
+      background-color: transparent;
+
+      &.textarea {
+        height: 10rem;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+const { text } = Astro.props;
+---
+
+<p class="role">{text}</p>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+  .role {
+    border: 1px solid $cl-gray;
+    padding: 1rem;
+    border-radius: $border-radius;
+    @extend %small-size;
+
+    margin: 0;
+
+    @include mobile {
+      width: fit-content;
+    }
+  }
+</style>

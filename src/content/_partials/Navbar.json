@@ -1,0 +1,25 @@
+{
+  "logo": "MB.",
+  "icons": {
+    "open": "../../../icons/menu.svg",
+    "close": "../../../icons/close.svg"
+  },
+  "links": [
+    {
+      "name": "About",
+      "src": "/about"
+    },
+    {
+      "name": "Projects",
+      "src": "/projects"
+    },
+    {
+      "name": "Resources",
+      "src": "/resources"
+    },
+    {
+      "name": "Contact",
+      "src": "/contact"
+    }
+  ]
+}

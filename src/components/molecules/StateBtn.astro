@@ -1,0 +1,52 @@
+---
+const { firstBtnSrc, secondBtnSrc, functionTrigger, className } = Astro.props;
+
+import generateRandomId from "../../utils/generateId";
+
+const firstBtnId = generateRandomId(5);
+const secondBtnId = generateRandomId(5);
+---
+
+<div class={className}>
+  <img
+    src={firstBtnSrc}
+    alt="minimize-icon"
+    id={firstBtnId}
+    onclick={functionTrigger}
+  />
+  <img
+    src={secondBtnSrc}
+    alt="maximize-icon"
+    id={secondBtnId}
+    onclick={functionTrigger}
+  />
+</div>
+
+<script define:vars={{ firstBtnId, secondBtnId }} is:inline>
+  const firstBtn = document.getElementById(firstBtnId);
+  const secondBtn = document.getElementById(secondBtnId);
+
+  secondBtn.style.display = "none";
+
+  const switchBtn = () => {
+    if (firstBtn.style.display == "none") {
+      firstBtn.style.display = "inline-block";
+      secondBtn.style.display = "none";
+      return null;
+    }
+    if (secondBtn.style.display == "none") {
+      firstBtn.style.display = "none";
+      secondBtn.style.display = "inline-block";
+      return null;
+    }
+  };
+
+  firstBtn.addEventListener("click", switchBtn);
+  secondBtn.addEventListener("click", switchBtn);
+</script>
+
+<style>
+  img {
+    z-index: 99999;
+  }
+</style>

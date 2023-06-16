@@ -1,0 +1,79 @@
+---
+const { tags, title, description, imageSrc } = Astro.props;
+---
+
+<div class="article_hero-wrapper">
+  <div class="article_hero-tags">
+    {
+      tags?.map((tag) => {
+        return <p class="article_hero-tag">{tag}</p>;
+      })
+    }
+  </div>
+  <h1 class="article_hero-title">{title}</h1>
+  <p class="article_hero-description">{description}</p>
+  {
+    imageSrc == null ? (
+      ""
+    ) : (
+      <img class="article_hero-img" src={imageSrc} alt={title + "-image"} />
+    )
+  }
+</div>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  .article_hero {
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    &-tags {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      p {
+        @extend %small-size;
+        color: $cl-gray;
+        font-weight: bold;
+
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        &:not(:last-child)::after {
+          // Local Variables
+          $size: 10px;
+          // End Local Variables
+
+          content: "";
+          display: inline-block;
+          width: $size;
+          height: $size;
+          border-radius: calc($size / 2);
+          background-color: lighten($cl-gray, 15);
+          margin: auto 0.5rem;
+        }
+      }
+    }
+    &-title {
+      @extend %title-size;
+      text-align: center;
+    }
+    &-description {
+      @extend %text-size;
+      text-align: center;
+      color: $cl-gray;
+      width: 70%;
+      margin-bottom: 1rem;
+    }
+    &-img {
+      width: 100%;
+      border-radius: calc($border-radius * 2);
+    }
+  }
+</style>
