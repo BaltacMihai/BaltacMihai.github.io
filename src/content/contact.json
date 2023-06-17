@@ -1,0 +1,28 @@
+{
+  "title": "Contact",
+  "contactForm": {
+    "formAction": "https://docs.google.com/forms/u/1/d/e/1FAIpQLScm4-F2DRKMZbdZ_J_PY_ixOQTiZWxX0Z7YpnG0M2GAwx1QDQ/formResponse",
+    "labelGroup": [
+      {
+        "label": "First & Last Name",
+        "inputType": "text",
+        "inputName": "entry.409288017"
+      },
+      {
+        "label": "Company",
+        "inputType": "text",
+        "inputName": "entry.458344659"
+      },
+      {
+        "label": "Email",
+        "inputType": "email",
+        "inputName": "entry.1955462360"
+      },
+      {
+        "label": "Message",
+        "inputType": "textarea",
+        "inputName": "entry.449183688"
+      }
+    ]
+  }
+}

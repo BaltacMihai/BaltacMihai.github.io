@@ -1,0 +1,36 @@
+---
+import GoogleForm from "../components/organisms/GoogleForm.astro";
+import Layout from "../layouts/Layout.astro";
+import content from "./../content/contact.json";
+---
+
+<Layout title="Resources | Baltac Mihai">
+  <main>
+    <h1>{content.title}</h1>
+    <GoogleForm
+      formAction={content.contactForm.formAction}
+      labelGroup={content.contactForm.labelGroup}
+    />
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use "../styles/settings" as *;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+
+    @include mobile {
+      margin-bottom: 10%;
+    }
+
+    h1 {
+      @extend %title-size;
+      margin-top: 3.5rem;
+      text-align: center;
+    }
+  }
+</style>
