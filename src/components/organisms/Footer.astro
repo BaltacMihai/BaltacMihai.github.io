@@ -24,7 +24,7 @@ import content from "./../../content/_partials/Footer.json";
           <div class="part">
             <p class="title">{part.title}</p>
 
-            {part.content.type == "text" ? (
+            {part.content.type === "text" ? (
               <p class="link-content">{part.content.text}</p>
             ) : (
               part.content.links?.map((link) => {
