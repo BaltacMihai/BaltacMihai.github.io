@@ -24,10 +24,10 @@ import content from "./../../content/_partials/Footer.json";
           <div class="part">
             <p class="title">{part.title}</p>
 
-            {part.content.text ? (
+            {part.content.type == "text" ? (
               <p class="link-content">{part.content.text}</p>
             ) : (
-              part.content?.map((link) => {
+              part.content.links?.map((link) => {
                 return (
                   <a href={link.href} class="link-content">
                     {link.text}
