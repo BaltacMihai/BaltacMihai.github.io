@@ -102,10 +102,16 @@ const compiledTags = [...frontmatter.tags];
           @extend %text-size;
           color: $cl-gray;
         }
-
-        li {
-          margin-left: 25px;
-          width: calc(100% - 25px);
+      }
+    }
+    li {
+      margin-left: 25px;
+      width: calc(100% - 25px);
+      a {
+        text-decoration: none;
+        span.link {
+          text-decoration: underline;
+          font-weight: bold;
         }
       }
     }
@@ -127,6 +133,16 @@ const compiledTags = [...frontmatter.tags];
       img {
         width: 100%;
         margin: 1rem 0;
+      }
+
+      .flex {
+        display: flex;
+        gap: 5rem;
+
+        @include tablet {
+          flex-direction: column;
+          gap: 2rem;
+        }
       }
     }
   }

@@ -1,0 +1,240 @@
+---
+title: Tagless
+url: tagless
+imageSrc: /project/tagless/thumbnail.svg
+tags:
+  - UI & UX
+  - Vue.js
+  - Scss
+---
+
+<div class="overview">
+  <div class="description">
+    <h2>Project Overview</h2>
+    <p>
+      This application provides an easy-to-use HTML editing solution to meet the
+      demands of developers and creative directors. It helps bloggers who wish
+      to quickly modify their material using a drag-and-drop interface by
+      putting a focus on simplicity and efficiency. With the use of this
+      software
+    </p>
+  </div>
+  <div class="process">
+    <h2>Process</h2>
+    <ul>
+      <li>Define objectives</li>
+      <li>Develop a proof of concept (POC)</li>
+      <li>Develop a minimum viable product (MVP)</li>
+      <li>Test and validate the concept</li>
+      <li>Redesign and Code Clean</li>
+    </ul>
+  </div>
+</div>
+<section>
+  <h2>Define objectives</h2>
+  <p>
+    This app's main goal is to provide users with an easy drag-and-drop
+    interface for editing HTML files. Once the desired modifications are made,
+    the app allows users to download the edited document. It would also be
+    advantageous to have a feature that shows the generated code that is
+    responsible for the alterations. Three file types, HTML, MD, and MDX, each
+    with unique requirements for headings and front matter, should be supported
+    by the program. The front matter and header should both be editable by
+    users. Users can add attributes to tags in the HTML and MDX formats,
+    including custom attributes.
+  </p>
+</section>
+<section>
+  <h2>Develop a proof of concept (POC)</h2>
+  <p>
+The project is drawn out as follows: Different sorts of HTML tags will be represented as cards on the user interface. A header area to show the tag name, an attribute part where the user may change the tag's attributes, and a content section for nested tags or textual content will all be included on each tag card.
+  </p>
+  <p>
+  There are five types of tags in this app:
+  </p>
+
+<ol>
+  <li>
+    <p>
+      Media tags (e.g., &lt;img>) where the content will be stored in the "src"
+      attribute.
+    </p>
+  </li>
+  <li>
+    <p>
+      Text tags (e.g., &lt;h1>, &lt;h2>, &lt;p>) which contain textual content.
+    </p>
+  </li>
+  <li>
+    <p>
+      Link tags, similar to media and text tags, but the data is stored in the
+      "href" attribute. Additionally, they have a text associated with them.
+    </p>
+  </li>
+  <li>
+    <p>
+      Single tags (e.g., &lt;br>, &lt;hr>) that do not have any content and are
+      self-closing.
+    </p>
+  </li>
+  <li>
+    <p>Container tags, which can contain other tags as their content.</p>
+  </li>
+</ol>
+
+<p>
+  Three file kinds should be supported by the program: MD, HTML and MDX. The
+  app's preset tags for these file formats enable proper formatting and
+  efficient production. The third file format is called MDX, and it supports
+  tags that may be changed. Since MDX can be customized, the application can't
+  automatically detect the type of tag, thus users must define the type of each
+  tag.
+</p>
+<p>
+  I've started the development process by quickly creating a mock-up that
+  displays the required look for the cards. The goal of this mock-up is to
+  depict the proposed visual arrangement. I've also described the JSON format's
+  structure and how I want to use it in the logic of the program.
+</p>
+
+<div class="flex">
+  <div class="photo">
+    <p class="small">First Mockup</p>
+    <img src="../project/tagless/first-mock-up.svg" alt="First Mock Up" />
+  </div>
+  <div class="photo">
+    <p class="small">JSON format</p>
+    <img src="../project/tagless/json-format.svg" alt="JSON format" />
+  </div>
+</div>
+
+<p>
+  After finishing the planning stage, I started the execution step to create a
+  Proof of Concept. The implementation appears as follows at this time:
+</p>
+<div class="photo">
+  <p class="small">P.O.C. implementation</p>
+  <img src="../project/tagless/poc-image.svg" alt="P.O.C. implementation<" />
+</div>
+</section>
+
+<section>
+  <h2>Develop a minimum viable product (MVP)</h2>
+  <p>
+    I began putting the more nuanced components into practice as soon as I had
+    confirmation that the app could be built. I developed a fresh, quick UI and
+    included some additional features:
+  </p>
+  <p>
+    You have the choice to import or export tags, as well as add or alter them.
+    You can save and retrieve the content you made in JSON format. You can
+    choose the appropriate file type while exporting. Note that predefined tags
+    are present in both HTML and MD files. To ensure compatibility with the new
+    format, all data will be destroyed anytime you change the file type.
+  </p>
+  <p>
+    My main objective is to create the app quickly so that I can test it quickly
+    and get accurate user feedback. I will be able to see how users interact
+    with the app and gain an understanding of their experiences by doing this.
+  </p>
+  <div class="photo">
+    <p class="small">M.V.P. implementation</p>
+    <img src="../project/tagless/mvp-image.svg" alt="M.V.P. implementation<" />
+  </div>
+</section>
+
+<section>
+  <h2>Test and validate the concept</h2>
+  <p>
+    I actively used the app every day for a whole week after I published it on
+    GitHub. I performed three interviews with new users during this time to
+    observe how they interacted with the app. I took particular note of every
+    observation made during these interviews as well as any feedback I got from
+    using the app personally.
+  </p>
+  <p>
+    My main objective is to create the app quickly so that I can test it quickly
+    and get accurate user feedback. I will be able to see how users interact
+    with the app and gain an understanding of their experiences by doing this.
+  </p>
+  <p>
+    It was determined that the app currently does not provide a suitable user
+    experience based on the observations and feedback received during my
+    personal use of the app and the interviews that were performed. There were a
+    few quick flaws found that need to be fixed in terms of functionality.
+    Additionally, it was determined that new features were required to raise the
+    app's general usability. These results draw attention to the areas that need
+    more work and development to improve the app's user experience.
+  </p>
+</section>
+
+<section>
+  <h2>Redesign and Code Clean</h2>
+  <p>
+    I have made the decision to use the Atom Design Technique for both the
+    design and implementation stages in order to effectively add new features as
+    they become necessary and to enable the app's continual development.
+  </p>
+  <p>
+    The Atom Design Technique is a modular strategy that divides the design into
+    more manageable, independent parts known as atoms. Then, more intricate
+    parts and arrangements are created by combining these atoms. The app's
+    design and coding can be more easily reused, maintained, and scaled thanks
+    to this technique.
+  </p>
+  <p>
+    I can create a library of reusable design components, or "atoms," by
+    employing the Atom Design Technique. When introducing new features, these
+    atoms are simply merged and rearranged to produce new components or screens.
+    This strategy encourages uniformity throughout the app's design and
+    streamlines the addition of new features.
+  </p>
+  <p>
+    You may quickly iterate and expand the app by including new features while
+    providing a consistent and well-organized user experience by putting the
+    Atom Design Technique into practice.
+  </p>
+  <p>
+    My strategy also adheres to the DRY (don't repeat yourself) and KISS (keep
+    it simple, stupid) maxims. I minimize redundancy and improve the
+    maintainability of your code by developing modular components and reusing
+    them throughout my design and implementation. Maintaining simplicity reduces
+    needless complication and boosts the overall effectiveness of your workflow.
+  </p>
+  <p>
+    The process proceeds as follows: I quickly mock up a new feature or
+    component, design the entire concept, then divide it into smaller sections,
+    and then implement it. I occasionally had the option of using the components
+    I already had, occasionally I needed to alter the components to make them
+    more universal, and occasionally I had to put them into practice.
+  </p>
+  <p>
+    The process proceeds as follows: I quickly mock up a new feature or
+    component, design the entire concept, then divide it into smaller sections,
+    and then implement it. I occasionally had the option of using the components
+    I already had, occasionally I needed to alter the components to make them
+    more universal, and occasionally I had to put them into practice.
+  </p>
+  <p>
+    I was also able to have all the logic and styling in one place using this
+    technique.
+  </p>
+  <p>Currently, the app seems as follows:</p>
+  <div class="photo">
+    <p class="small">Current implementation</p>
+    <img
+      src="../project/tagless/current-app.png"
+      alt="Current implementation<"
+    />
+  </div>
+</section>
+
+<section>
+  <h2>Future plans</h2>
+  <p>
+    As I have stated, the app will continue to receive updates until none are
+    necessary. Additionally, the ATOM DESIGN approach makes it simpler to
+    troubleshoot or add new features to a single component. For instance,
+    include the ability to right-click each button.
+  </p>
+</section>
