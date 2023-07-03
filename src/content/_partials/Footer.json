@@ -3,15 +3,15 @@
     "text": "Get connected with me on social networks:",
     "links": [
       {
-        "icon": "../facebook.svg",
+        "icon": "https://baltacmihai.github.io/facebook.svg",
         "href": "https://www.facebook.com/cristian.mihai.92/"
       },
       {
-        "icon": "../linkedin.png",
+        "icon": "https://baltacmihai.github.io/linkedin.png",
         "href": "https://www.linkedin.com/in/baltac-mihai-cristian/"
       },
       {
-        "icon": "../github.png",
+        "icon": "https://baltacmihai.github.io/github.png",
         "href": "https://github.com/BaltacMihai"
       }
     ]
