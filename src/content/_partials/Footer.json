@@ -1,0 +1,60 @@
+{
+  "social": {
+    "text": "Get connected with me on social networks:",
+    "links": [
+      {
+        "icon": "../facebook.svg",
+        "href": "https://www.facebook.com/cristian.mihai.92/"
+      },
+      {
+        "icon": "../linkedin.png",
+        "href": "https://www.linkedin.com/in/baltac-mihai-cristian/"
+      },
+      {
+        "icon": "../github.png",
+        "href": "https://github.com/BaltacMihai"
+      }
+    ]
+  },
+
+  "internalLinks": [
+    {
+      "title": "Bâltac Mihai-Cristian",
+      "content": {
+        "text": "Digital designer and frontend developer with a focus on art direction, motion and creative development."
+      }
+    },
+    {
+      "title": "Projects",
+      "content": [
+        {
+          "href": "../project/community-platform",
+          "text": "Community Platform"
+        },
+        {
+          "href": "../project/componentUI",
+          "text": "Component UI"
+        },
+        {
+          "href": "../project/tagless",
+          "text": "Tagless"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "content": [
+        {
+          "href": "../resource/sass-course",
+          "text": "Mastering Sass: Advanced Techniques for Effective Styling"
+        },
+        {
+          "href": "../resource/database-systems-journal-human-resources-allocation-solution",
+          "text": "Database Systems Journal: Human Resources Allocation Solution"
+        }
+      ]
+    }
+  ],
+
+  "copyright": "@2023 copyright Baltac Mihai-Cristian"
+}

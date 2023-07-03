@@ -1,0 +1,127 @@
+---
+import content from "./../../content/_partials/Footer.json";
+---
+
+<footer>
+  <div class="social">
+    <p>{content.social.text}</p>
+    <div class="links">
+      {
+        content.social.links?.map((link) => {
+          return (
+            <a href={link.href} target="_blank">
+              <img src={link.icon} alt={`${link.href} - item`} />
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+  <div class="intern-links">
+    {
+      content.internalLinks?.map((part) => {
+        return (
+          <div class="part">
+            <p class="title">{part.title}</p>
+
+            {part.content.text ? (
+              <p class="link-content">{part.content.text}</p>
+            ) : (
+              part.content?.map((link) => {
+                return (
+                  <a href={link.href} class="link-content">
+                    {link.text}
+                  </a>
+                );
+              })
+            )}
+          </div>
+        );
+      })
+    }
+  </div>
+  <div class="copyright">{content.copyright}</div>
+</footer>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  footer {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 5rem;
+
+    .social {
+      background-color: $cl-black;
+      color: $cl-white;
+      @extend %layout-size;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      p {
+        @extend %text-size;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        img {
+          $_size: 20px;
+          width: $_size;
+          height: $_size;
+        }
+      }
+    }
+
+    .intern-links {
+      display: flex;
+
+      @extend %layout-size;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      gap: 2rem;
+
+      @include tablet {
+        flex-direction: column;
+      }
+
+      .part {
+        display: flex;
+        flex-direction: column;
+
+        gap: 0.75rem;
+        flex: 1 0 27%;
+
+        @include tablet {
+          flex: 1 0 100%;
+
+          text-align: center;
+        }
+
+        .title {
+          @extend %text-size;
+          font-weight: bold;
+        }
+
+        .link-content {
+          @extend %text-size;
+          text-decoration: none;
+          color: $cl-black;
+        }
+      }
+    }
+    .copyright {
+      text-align: center;
+      @extend %small-size;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+</style>
