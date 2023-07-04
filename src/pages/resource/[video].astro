@@ -3,8 +3,10 @@ import ArticleHeader from "../../components/organisms/ArticleHeader.astro";
 import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
   const rawModules = await Astro.glob("../../content/resources/podcast/*.mdx");
-  const videoModules = rawModules.filter((resourceInfo) =>
-    resourceInfo.frontmatter.contentType.includes("Video")
+  const videoModules = rawModules.filter(
+    (resourceInfo) =>
+      resourceInfo.frontmatter.contentType.includes("Video") ||
+      resourceInfo.frontmatter.contentType.includes("Podcast")
   );
 
   return videoModules.map((resourceInfo) => ({
