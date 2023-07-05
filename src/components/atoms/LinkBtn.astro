@@ -1,8 +1,8 @@
 ---
-const { text, href, type } = Astro.props;
+const { text, href, target } = Astro.props;
 ---
 
-<a href={href} class="btn">{text}</a>
+<a href={href} class="btn" target={target}>{text}</a>
 
 <style lang="scss">
   @use "../../styles/settings" as *;

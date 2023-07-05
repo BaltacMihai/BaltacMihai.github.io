@@ -1,5 +1,6 @@
 ---
-const { tags, title, description, imageSrc } = Astro.props;
+import LinkBtn from "../atoms/LinkBtn.astro";
+const { tags, title, description, imageSrc, externalLinks } = Astro.props;
 ---
 
 <div class="article_hero-wrapper">
@@ -12,6 +13,13 @@ const { tags, title, description, imageSrc } = Astro.props;
   </div>
   <h1 class="article_hero-title">{title}</h1>
   <p class="article_hero-description">{description}</p>
+  <div class="article_hero-links">
+    {
+      externalLinks?.map((link) => (
+        <LinkBtn href={link.href} text={link.name} target="_blank" />
+      ))
+    }
+  </div>
   {
     imageSrc == null ? (
       ""
@@ -58,6 +66,17 @@ const { tags, title, description, imageSrc } = Astro.props;
           background-color: lighten($cl-gray, 15);
           margin: auto 0.5rem;
         }
+      }
+    }
+    &-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      @include mobile {
+        flex-direction: column;
       }
     }
     &-title {

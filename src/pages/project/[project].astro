@@ -14,7 +14,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { Content, frontmatter } = Astro.props.projectInfo;
+const { Content, frontmatter, externalLinks } = Astro.props.projectInfo;
 const compiledTags = [...frontmatter.tags];
 ---
 
@@ -25,6 +25,7 @@ const compiledTags = [...frontmatter.tags];
       title={frontmatter.title}
       description={frontmatter.description}
       imageSrc={frontmatter.imageSrc}
+      externalLinks={externalLinks}
     />
     <div class="content">
       <Content />
