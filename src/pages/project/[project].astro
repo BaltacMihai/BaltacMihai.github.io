@@ -146,5 +146,17 @@ const compiledTags = [...frontmatter.tags];
         }
       }
     }
+
+    .contribution-highlight {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+
+      @include mobile {
+        gap: 1rem;
+      }
+    }
   }
 </style>

@@ -1,0 +1,160 @@
+---
+import minimizeIcon from "./../../assets/icons/minimize.svg";
+import maximizeIcon from "./../../assets/icons/maximize.svg";
+import generateRandomId from "../../utils/generateId";
+import commitIcon from "./../../assets/icons/commit.svg";
+import pullRequestIcon from "./../../assets/icons/pullRequest.svg";
+
+const { title, description, content, isClosed } = Astro.props;
+
+const contentId = title + "-" + generateRandomId(3);
+const minimizeId = "minimize-" + generateRandomId(3);
+const maximizeId = "maximize-" + generateRandomId(3);
+---
+
+<div class="acordion-table">
+  <div class="header">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <div class="actions">
+      <img src={minimizeIcon} alt="minimize-icon" id={minimizeId} />
+      <img src={maximizeIcon} alt="maximize-icon" id={maximizeId} />
+    </div>
+  </div>
+  <div class="items" id={contentId}>
+    {
+      content?.map((commit) => {
+        return (
+          <a href={commit.link} class="item" target="_blank">
+            <img
+              src={commit.type == "commit" ? commitIcon : pullRequestIcon}
+              alt="Commit Icon"
+            />
+            <p>{commit.title}</p>
+          </a>
+        );
+      })
+    }
+  </div>
+</div>
+
+<script define:vars={{ minimizeId, maximizeId, contentId, isClosed }} is:inline>
+  const minimizeBtn = document.getElementById(minimizeId);
+  const maximizeBtn = document.getElementById(maximizeId);
+  const content = document.getElementById(contentId);
+
+  const openContent = (content, minimizeBtn, maximizeBtn) => {
+    content.style.display = "flex";
+    maximizeBtn.style.display = "none";
+    minimizeBtn.style.display = "block";
+  };
+
+  const closeContent = (content, minimizeBtn, maximizeBtn) => {
+    content.style.display = "none";
+    minimizeBtn.style.display = "none";
+    maximizeBtn.style.display = "block";
+  };
+
+  function closeInnerContent(innerContentId, innerMinimizeId, innerMaximizeId) {
+    const minimizeBtn = document.getElementById(innerMinimizeId);
+    const maximizeBtn = document.getElementById(innerMaximizeId);
+    const content = document.getElementById(innerContentId);
+    closeContent(content, minimizeBtn, maximizeBtn);
+  }
+
+  function openInnerContent(innerContentId, innerMinimizeId, innerMaximizeId) {
+    const minimizeBtn = document.getElementById(innerMinimizeId);
+    const maximizeBtn = document.getElementById(innerMaximizeId);
+    const content = document.getElementById(innerContentId);
+    openContent(content, minimizeBtn, maximizeBtn);
+  }
+
+  //default
+  maximizeBtn.style.display = "none";
+
+  //minimize the content
+  minimizeBtn.addEventListener("click", () => {
+    closeContent(content, minimizeBtn, maximizeBtn);
+  });
+
+  //maximize the content
+  maximizeBtn.addEventListener("click", () => {
+    openContent(content, minimizeBtn, maximizeBtn);
+  });
+
+  if (isClosed) {
+    closeContent(content, minimizeBtn, maximizeBtn);
+  }
+</script>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
+  %borderStyle {
+    border: 1px solid $cl-gray;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .acordion-table {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    @extend %borderStyle;
+
+    .header {
+      border-bottom: 1px solid $cl-gray;
+      position: relative;
+      padding-bottom: 0.5rem;
+
+      h3 {
+        @extend %text-size;
+        font-weight: 800;
+        @include mobile {
+          width: 80%;
+        }
+      }
+      p {
+        @extend %text-size;
+        margin: 0;
+      }
+      .actions {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .items {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0.5rem 0;
+      gap: 1.5rem;
+
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+
+        * {
+          margin: 0;
+        }
+        img {
+          $size: 25px;
+          width: $size;
+          height: $size;
+        }
+
+        p {
+          color: $cl-blue;
+        }
+      }
+    }
+  }
+</style>

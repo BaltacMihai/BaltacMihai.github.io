@@ -9,6 +9,9 @@ tags:
   - Jest
 ---
 
+import GitHighlight from "./../../components/organisms/GitHighlight.astro";
+import GitStory from "./../../components/organisms/GitStory.astro";
+
 export const externalLinks = [
   { name: "See Code", href: "https://github.com/ONEARMY/community-platform" },
   {
@@ -82,42 +85,139 @@ export const externalLinks = [
 </section>
 <section>
   <h2>My contributions</h2>
-  <ul>
-    <li>
-      <a
-        href="https://github.com/ONEARMY/community-platform/pulls?q=is%3Apr+is%3Aclosed+author%3ABaltacMihai+Theme"
-        target="_blank"
-      >
-        <span class="link">[Refactor]</span> Eliminate direct utilization of a
-        generic Theme and obtain a dynamic custom theme for each project.
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://github.com/ONEARMY/community-platform/pulls?q=is%3Apr+is%3Aclosed+author%3ABaltacMihai+chore"
-        target="_blank"
-      >
-        <span class="link">[Refactor]</span> Improve code readability and
-        organization.
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://github.com/ONEARMY/community-platform/pull/2454"
-        target="_blank"
-      >
-        <span class="link">[Feature]</span> Redesign research page cards.
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://github.com/ONEARMY/community-platform/issues?q=+is%3Aissue+author%3ABaltacMihai+"
-        target="_blank"
-      >
-        <span class="link">[Discussion]</span> Enhancing the overall UI & UX.
-      </a>
-    </li>
-  </ul>
+  <div class="contribution-highlight">
+    <GitHighlight
+      title="Pull Requests"
+      stats="12"
+      link="https://github.com/ONEARMY/community-platform/pulls?q=is%3Apr+author%3ABaltacMihai+is%3Aclosed+is%3Amerged"
+    />
+    <GitHighlight
+      title="Issues"
+      stats="3"
+      link="https://github.com/ONEARMY/community-platform/issues?q=is%3Aissue+author%3ABaltacMihai+"
+    />
+    <GitHighlight
+      title="Commits"
+      stats="31"
+      link="https://github.com/ONEARMY/community-platform/commits?author=BaltacMihai"
+    />
+    <GitHighlight
+      title="Impact"
+      stats={[
+        { stats: "++1,406", type: "add" },
+        { stats: "--1,462", type: "delete" },
+      ]}
+    />
+  </div>
+  <GitStory
+    title="Dynamic theme"
+    description="Get a dynamic custom theme for each project instead of using a generic theme directly."
+    content={[
+      {
+        title: "fix: remove use of theme from logo",
+        link: "https://github.com/ONEARMY/community-platform/pull/2435",
+        type: "pull-request",
+      },
+      {
+        title:
+          "fix: remove use of theme from ChangePassword.form & ChangeEmail.form",
+        link: "https://github.com/ONEARMY/community-platform/pull/2441",
+        type: "pull-request",
+      },
+      {
+        title: "refactor: remove use of theme from ProfileButtons",
+        link: "https://github.com/ONEARMY/community-platform/pull/2448",
+        type: "pull-request",
+      },
+      {
+        title: "feature: research page card redesign",
+        link: "https://github.com/ONEARMY/community-platform/pull/2454/files#diff-f7eb4dfa8b13565b42406cb4a70957f22bd494288781c049e5cce640eb37880f",
+        type: "commit",
+      },
+      {
+        title: "[refactor] Remove direct usage of Theme",
+        link: "https://github.com/ONEARMY/community-platform/pull/2462",
+        type: "pull-request",
+      },
+      {
+        title: "refactor: imageConverter general theme removed",
+        link: "https://github.com/ONEARMY/community-platform/pull/2472",
+        type: "pull-request",
+      },
+    ]}
+    isClosed={false}
+  />
+  <GitStory
+    title="Clean Code"
+    description="Applying the principles of clean code, refactor current code to make it simpler to understand and use"
+    content={[
+      {
+        title: "refactor: font size changed from 16px to 18px",
+        link: "https://github.com/ONEARMY/community-platform/pull/2454/commits/fb85a09cdee670b6a13277be9ee0467f7eb62a67",
+        type: "commit",
+      },
+      {
+        title: "chore: font size fixed and cleaned the unnecessary comments",
+        link: "https://github.com/ONEARMY/community-platform/pull/2461",
+        type: "pull-request",
+      },
+      {
+        title: "refactor: rename 'yellow' variable to 'accent'",
+        link: "https://github.com/ONEARMY/community-platform/pull/2469",
+        type: "pull-request",
+      },
+      {
+        title: "[refactor] consolidate common style variables",
+        link: "https://github.com/ONEARMY/community-platform/pull/2477",
+        type: "pull-request",
+      },
+      {
+        title: "feat: align research filter section with how-to",
+        link: "https://github.com/ONEARMY/community-platform/pull/2526",
+        type: "pull-request",
+      },
+    ]}
+    isClosed={false}
+  />
+  <GitStory
+    title="Features"
+    description="Build features that guarantee the user has the best possible experience."
+    content={[
+      {
+        title: "feature: research page card redesign",
+        link: "https://github.com/ONEARMY/community-platform/pull/2454",
+        type: "pull-request",
+      },
+      {
+        title: "feat: add show hide password icon ",
+        link: "https://github.com/ONEARMY/community-platform/pull/2476",
+        type: "pull-request",
+      },
+      {
+        title: "feat: align research filter section with how-to",
+        link: "https://github.com/ONEARMY/community-platform/pull/2526",
+        type: "pull-request",
+      },
+    ]}
+    isClosed={false}
+  />
+  <GitStory
+    title="Unit tests"
+    description="Create and modify unit tests that validate each testable component of the code."
+    content={[
+      {
+        title: "refactor: remove redundant test",
+        link: "https://github.com/ONEARMY/community-platform/pull/2526/files#diff-17ffb1a7521460c53e06b25d13b4728828f6e4af1cae8b105069f5234b04411e",
+        type: "commit",
+      },
+      {
+        title: "feat: add tests for FitlerSorterDecorator.ts",
+        link: "https://github.com/ONEARMY/community-platform/pull/2526/files#diff-2f7b0a9c8d0556701b711c1867fb341d2fa47bebcd08734f98f11754c5572e8a",
+        type: "commit",
+      },
+    ]}
+    isClosed={false}
+  />
 </section>
 <section>
   <h2>Impact and outcomes</h2>

@@ -1,0 +1,80 @@
+---
+const { title, stats, link } = Astro.props;
+---
+
+<div class="git-stats">
+  <h3 class="title">{title}</h3>
+  {
+    !Array.isArray(stats) ? (
+      link ? (
+        <a class="stats" href={link} target="_blank">
+          {stats}
+        </a>
+      ) : (
+        <p class="stats">{stats}</p>
+      )
+    ) : (
+      <p class="stats stats-array">
+        {stats.map((val) => {
+          return <span class={val.type}>{val.stats}</span>;
+        })}
+      </p>
+    )
+  }
+</div>
+
+<style lang="scss">
+  @use "../../styles/settings" as *;
+  %borderStyle {
+    border: 1px solid $cl-gray;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .git-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    @extend %borderStyle;
+
+    padding: 0.5rem 1rem;
+
+    @include mobile {
+      padding: 0.25rem 0.5rem;
+    }
+
+    .title {
+      border-bottom: 1px solid $cl-gray;
+      padding-bottom: 0.5rem;
+      @extend %text-size;
+      width: 100%;
+      text-align: center;
+    }
+
+    .stats {
+      padding-top: 0.5rem;
+      @extend %subtitle-size;
+      text-decoration: none;
+      font-weight: 800;
+      color: $cl-blue;
+
+      margin: 0;
+
+      &-array {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+
+        .add {
+          color: $cl-green;
+        }
+        .delete {
+          color: $cl-red;
+        }
+      }
+    }
+  }
+</style>
