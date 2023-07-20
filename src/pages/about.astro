@@ -20,7 +20,9 @@ const certificates = content.certificates;
         <h3>{content.fullName}</h3>
         <h4>{content.pronunciation}</h4>
       </div>
-      <button class="btn">{content.resumeBtn.text}</button>
+      <a href="/resume.pdf" target="_blank" class="btn"
+        >{content.resumeBtn.text}</a
+      >
       <div class="text">
         {
           content.description?.map((paragraph) => {
@@ -109,6 +111,10 @@ const certificates = content.certificates;
             flex: 0 0 100%;
             margin-top: 2rem;
           }
+        }
+
+        a.btn {
+          text-decoration: none;
         }
 
         .text {

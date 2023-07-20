@@ -6,8 +6,10 @@ import LinkBtn from "../components/atoms/LinkBtn.astro";
 import content from "../content/home.json";
 import ProjectCard from "../components/molecules/ProjectCard.astro";
 import GoogleForm from "../components/organisms/GoogleForm.astro";
-const rawFirstProject = await Astro.glob("../content/projects/ComponentUi.mdx");
-const rawSecondProject = await Astro.glob("../content/projects/Alfastar.mdx");
+const rawFirstProject = await Astro.glob(
+  "../content/projects/ComunityPlatform.mdx"
+);
+const rawSecondProject = await Astro.glob("../content/projects/Tagless.mdx");
 
 const projects = [
   rawFirstProject[0].frontmatter,
