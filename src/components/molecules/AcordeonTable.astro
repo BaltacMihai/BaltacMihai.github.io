@@ -24,7 +24,14 @@ const maximizeId = "maximize-" + generateRandomId(3);
     {
 
       items?.map((item,index) => {
-        const isRepeated = index > 0 && item.date.value === items[index - 1].date.value;
+        let isRepeated;
+
+        if(item.date.type == "single")
+        isRepeated = index > 0 && (item.date.value === items[index - 1].date.value );
+        else {
+          isRepeated =  index > 0 && (item.date.startingDate === items[index - 1].date.startingDate && item.date.endingDate === items[index - 1].date.endingDate)
+        }
+
         const className = isRepeated ? "date repeated" : "date";
             return (
                 <div class="item">
@@ -32,9 +39,10 @@ const maximizeId = "maximize-" + generateRandomId(3);
                         {item.date.type=="single" ? 
                             <p>{item.date.value}</p> : 
                             (
-                            <p>{item.date.startingDate}</p>
-                            <p>-</p>
                             <p>{item.date.endingDate}</p>
+                            <p>-</p>
+                            <p>{item.date.startingDate}</p>
+
                             )
                         }
                     </div>

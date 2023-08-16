@@ -53,6 +53,23 @@
       {
         "date": {
           "type": "double",
+          "startingDate": "2023",
+          "endingDate": "2025"
+        },
+        "title": "Project Management Master's Degree @National University of Political Studies and Public Administration",
+        "description": [
+          "• Getting started with entrepreneurship and innovation: Using business acumen to navigate cutthroat international marketplaces.",
+          "• Developing Leadership & Team Management Skills using psychology to lead project teams effectively.",
+          "• Unlocking the execution of EU policy through crucial initiatives and financial plans.",
+          "• Managing IT Projects executing projects with Microsoft Project in a seamless manner.",
+          "• Risk Management in Projects recognizing, assessing, and managing project risks with expertise.",
+          "• Excellence using ideas and methods to make the best decisions possible based on results.",
+          "• Effective performance reporting accurately communicates outcomes and performance."
+        ]
+      },
+      {
+        "date": {
+          "type": "double",
           "startingDate": "2019",
           "endingDate": "2022"
         },
@@ -91,7 +108,7 @@
           "startingDate": "2021",
           "endingDate": "Now"
         },
-        "title": "Forntend Developer & UI Designer @Exe Software",
+        "title": "Frontend Developer & UI Designer @Exe Software",
         "description": [
           "• Design and build mobile-friendly web applications;",
           "• Executing   all visual design stages from concept to final hand-off to engineering; ",
