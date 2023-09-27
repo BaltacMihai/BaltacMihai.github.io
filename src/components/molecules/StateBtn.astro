@@ -23,30 +23,38 @@ const secondBtnId = generateRandomId(5);
 </div>
 
 <script define:vars={{ firstBtnId, secondBtnId }} is:inline>
-  const firstBtn = document.getElementById(firstBtnId);
-  const secondBtn = document.getElementById(secondBtnId);
+const firstBtn = document.getElementById(firstBtnId);
+const secondBtn = document.getElementById(secondBtnId);
 
-  secondBtn.style.display = "none";
+secondBtn.style.display = "none";
 
-  const switchBtn = () => {
-    if (firstBtn.style.display == "none") {
-      firstBtn.style.display = "inline-block";
-      secondBtn.style.display = "none";
-      return null;
-    }
-    if (secondBtn.style.display == "none") {
-      firstBtn.style.display = "none";
-      secondBtn.style.display = "inline-block";
-      return null;
-    }
-  };
+const switchBtn = () => {
+  if (firstBtn.style.display == "none") {
+    firstBtn.style.display = "inline-block";
+    secondBtn.style.display = "none";
+    return null;
+  }
+  if (secondBtn.style.display == "none") {
+    firstBtn.style.display = "none";
+    secondBtn.style.display = "inline-block";
+    return null;
+  }
+};
 
-  firstBtn.addEventListener("click", switchBtn);
-  secondBtn.addEventListener("click", switchBtn);
+firstBtn.addEventListener("click", switchBtn);
+secondBtn.addEventListener("click", switchBtn);
 </script>
 
-<style>
+<style lang="scss">
+  @use "../../styles/settings" as *;
+
   img {
     z-index: 99999;
+    display: none;
+
+    @include mobile {
+      display: block;
+      position: relative;
+    }
   }
 </style>
